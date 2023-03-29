@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Perguntas = [
+const questions = [
   "É importante para ela ter poder para conseguir com que as pessoas façam o que ela quer.",
   "É importante para ela ser a pessoa que diz aos outros o que fazer",
   "É importante para ela que ninguém jamais a envergonhe.",
@@ -16,7 +16,7 @@ const Perguntas = [
   "É importante para ela evitar chatear as pessoas."
 ];
 
-const Respostas = [
+const options = [
   "Não se parece nada comigo",
   "Se parece pouco comigo",
   "Se parece mais ou menos comigo",
@@ -31,6 +31,7 @@ export function VF_Quest_2() {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
+    console.log(newAnswers)
   };
 
   return (

@@ -17,43 +17,56 @@ const questions = [
 ];
 
 const options = [
-  { text: 'Não se parece nada comigo', value: 1 },
-  { text: 'Se parece pouco comigo', value: 2 },
-  { text: 'Se parece mais ou menos comigo', value: 3 },
-  { text: 'Se parece comigo', value: 4 },
-  { text: 'Se parece muito comigo', value: 5 },
+  { text: 'Não se parece nada comigo' },
+  { text: 'Se parece pouco comigo' },
+  { text: 'Se parece mais ou menos comigo'},
+  { text: 'Se parece comigo' },
+  { text: 'Se parece muito comigo'},
 ];
 
-export function VF_Quest_3() {
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
+export function VF_Quest_2() {
+  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
-  function handleOptionClick(questionIndex, optionValue) {
+  const handleOptionSelect = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
-    newAnswers[questionIndex] = optionValue;
+    newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
-  }
+    console.log(newAnswers)
+  };
 
   return (
     <div>
-      {questions.map((q, i) => (
-        <div key={i}>
-          <span>{q.question}</span>
-          {options.map((o, j) => (
-            <label key={j}>
-              <input
-                type="radio"
-                name={`question-${i}`}
-                value={o.value}
-                checked={answers[i] === o.value}
-                onChange={() => handleOptionClick(i, o.value)}
-              />
-              {o.text}
-            </label>
+      <h2>Questionário</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Pergunta</th>
+            {options.map((option, index) => (
+              <th key={index}>{option}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {questions.map((question, questionIndex) => (
+            <tr key={questionIndex}>
+              <td>{question}</td>
+              {options.map((option, optionIndex) => (
+                <td key={optionIndex}>
+                  <input
+                    type="radio"
+                    name={`question-${questionIndex}`}
+                    value={optionIndex}
+                    checked={answers[questionIndex] === optionIndex}
+                    onChange={() =>
+                      handleOptionSelect(questionIndex, optionIndex)
+                    }
+                  />
+                </td>
+              ))}
+            </tr>
           ))}
-        </div>
-      ))}
-      <button onClick={() => console.log(answers)}>Enviar respostas</button>
+        </tbody>
+      </table>
     </div>
   );
 }
-
