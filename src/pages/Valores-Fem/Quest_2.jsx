@@ -24,7 +24,7 @@ const Respostas = [
   "Se parece muito comigo"
 ];
 
-function App() {
+export function VF_Quest_2() {
   const [respostas, setRespostas] = useState(Array(Perguntas.length).fill(null));
 
   function handleResposta(perguntaIndex, respostaIndex) {
@@ -57,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+

@@ -24,7 +24,7 @@ const options = [
   { text: 'Se parece muito comigo', value: 5 },
 ];
 
-function App() {
+export function VF_Quest_3() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
 
   function handleOptionClick(questionIndex, optionValue) {
@@ -57,4 +57,3 @@ function App() {
   );
 }
 
-export default App;

@@ -23,7 +23,7 @@ const options = [
   "Se parece muito comigo"
 ];
 
-function Questionnaire() {
+export function VF_Quest_1() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
   const handleOptionSelect = (questionIndex, optionIndex) => {
@@ -69,4 +69,3 @@ function Questionnaire() {
   );
 }
 
-export default Questionnaire;
