@@ -17,7 +17,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        { <Route path="/pages/Valores-Fem/Quest_1" element={<VF_Quest_1 />} />}
+        {/* { <Route path="/pages/Valores-Fem/Quest_1" element={<VF_Quest_1 />} />} */}
         {   <Route path="/pages/Valores-Fem/Quest_2" element={<VF_Quest_2 />} />} 
         {/* { <Route path="/pages/Valores-Fem/Quest_3" element={<VF_Quest_3 />} />}
         { <Route path="/pages/Valores-Mas/Quest_1" element={<VM_Quest_1 />} />}

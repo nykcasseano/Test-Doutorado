@@ -25,36 +25,47 @@ const Respostas = [
 ];
 
 export function VF_Quest_2() {
-  const [respostas, setRespostas] = useState(Array(Perguntas.length).fill(null));
+  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
-  function handleResposta(perguntaIndex, respostaIndex) {
-    const novasRespostas = [...respostas];
-    novasRespostas[perguntaIndex] = respostaIndex;
-    setRespostas(novasRespostas);
-  }
+  const handleOptionSelect = (questionIndex, optionIndex) => {
+    const newAnswers = [...answers];
+    newAnswers[questionIndex] = optionIndex;
+    setAnswers(newAnswers);
+  };
 
   return (
     <div>
-      <h1>Questionário de Personalidade</h1>
-      {Perguntas.map((pergunta, perguntaIndex) => (
-        <div key={perguntaIndex}>
-          <h3>{pergunta}</h3>
-          <div>
-            {Respostas.map((resposta, respostaIndex) => (
-              <button
-                key={respostaIndex}
-                onClick={() => handleResposta(perguntaIndex, respostaIndex)}
-                className={respostas[perguntaIndex] === respostaIndex ? "selected" : ""}
-              >
-                {resposta}
-              </button>
+      <h2>Questionário</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Pergunta</th>
+            {options.map((option, index) => (
+              <th key={index}>{option}</th>
             ))}
-          </div>
-        </div>
-      ))}
-      <button onClick={() => console.log(respostas)}>Enviar Respostas</button>
+          </tr>
+        </thead>
+        <tbody>
+          {questions.map((question, questionIndex) => (
+            <tr key={questionIndex}>
+              <td>{question}</td>
+              {options.map((option, optionIndex) => (
+                <td key={optionIndex}>
+                  <input
+                    type="radio"
+                    name={`question-${questionIndex}`}
+                    value={optionIndex}
+                    checked={answers[questionIndex] === optionIndex}
+                    onChange={() =>
+                      handleOptionSelect(questionIndex, optionIndex)
+                    }
+                  />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
-
-
