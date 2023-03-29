@@ -17,14 +17,15 @@ const questions = [
 ];
 
 const options = [
-  { text: 'Não se parece nada comigo' },
-  { text: 'Se parece pouco comigo' },
-  { text: 'Se parece mais ou menos comigo'},
-  { text: 'Se parece comigo' },
-  { text: 'Se parece muito comigo'},
+  "Não se parece nada comigo",
+  "Se parece pouco comigo",
+  "Se parece mais ou menos comigo",
+  "Se parece comigo",
+  "Se parece muito comigo"
 ];
 
-export function VF_Quest_2() {
+
+export function VF_Quest_3() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
   const handleOptionSelect = (questionIndex, optionIndex) => {
