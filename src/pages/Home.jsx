@@ -46,9 +46,9 @@ export function Home() {
       setEstadoAtua('');
 
       if (sexo === 'Masculino') {
-        navigate('/questionario2')
+        navigate('/pages/Valores-Mas/Quest_1')
       } else {
-        navigate('/questionario1')
+        navigate('/pages/Valores-Fem/Quest_1')
       }
     } catch (error) {
       console.error('Error submitting form: ', error);
