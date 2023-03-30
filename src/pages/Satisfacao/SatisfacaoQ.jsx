@@ -24,7 +24,7 @@ export function SatisfacaoQ() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
-  navigate('/pages/Valores-Fem/Quest_3')
+  navigate('/pages/Satisfacao/SatisfacaoQ')
   console.log('Button clicked!');
 }
 

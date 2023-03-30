@@ -23,8 +23,8 @@ function App() {
         { <Route path="/pages/Valores-Mas/Quest_1" element={<VM_Quest_1 />} />}
         { <Route path="/pages/Valores-Mas/Quest_2" element={<VM_Quest_2 />} />}
         { <Route path="/pages/Valores-Mas/Quest_3" element={<VM_Quest_3 />} />}
-        {   <Route path="/pages/Satisfacao/SatisfacaoQ" element={SatisfacaoQ} />} 
-        {   <Route path="/pages/Significado/page_1" element={Significado_page_1} />} 
+        {   <Route path="/pages/Satisfacao/SatisfacaoQ" element={<SatisfacaoQ/>} />} 
+        {   <Route path="/pages/Significado/page_1" element={<Significado_page_1/>} />} 
     
         
       </Routes>

@@ -30,7 +30,7 @@ export function VF_Quest_3() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
-  navigate('/pages/Significado/page_1')
+  navigate('/pages/Satisfacao/SatisfacaoQ')
   console.log('Button clicked!');
 };
 
