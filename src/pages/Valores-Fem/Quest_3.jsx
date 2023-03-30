@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const questions = [
-  { question: 'É importante para ela nunca irritar alguém.' },
-  { question: 'É importante para ela ser humilde.' },
-  { question: 'É importante para ela estar satisfeita com o que ela tem e não querer mais.' },
-  { question: 'É importante para ela que as pessoas que elaconhece tenham total confiança nela.' },
-  { question: 'É importante para ela que todos os seus amigos e família possam acreditar nela completamente.' },
-  { question: 'É importante para ela cuidar das pessoas das quais ela se sente próxima.' },
-  { question: 'É importante para ela se preocupar com todas as necessidades das suas pessoas queridas.' },
-  { question: 'É importante para ela que todas as pessoas no mundo tenham oportunidades iguais na vida.' },
-  { question: 'É importante para ela que todos sejam tratados com justiça, mesmo pessoas que ela não conhece.' },
-  { question: 'É importante para ela tomar parte nas atividades que defendam a natureza.' },
-  { question: 'É importante para ela proteger o ambiente natural da destruição ou poluição.' },
-  { question: 'É importante para ela ouvir e compreender as pessoas que são diferentes dela.' },
-  { question: 'É importante para ela aceitar as pessoas como elas são, mesmo quando ela discorda delas.' },
+  'É importante para ela nunca irritar alguém.' ,
+  'É importante para ela ser humilde.' ,
+  'É importante para ela estar satisfeita com o que ela tem e não querer mais.' ,
+  'É importante para ela que as pessoas que ela conhece tenham total confiança nela.' ,
+  'É importante para ela que todos os seus amigos e família possam acreditar nela completamente.' ,
+  'É importante para ela cuidar das pessoas das quais ela se sente próxima.' ,
+  'É importante para ela se preocupar com todas as necessidades das suas pessoas queridas.' ,
+  'É importante para ela que todas as pessoas no mundo tenham oportunidades iguais na vida.' ,
+  'É importante para ela que todos sejam tratados com justiça, mesmo pessoas que ela não conhece.' ,
+  'É importante para ela tomar parte nas atividades que defendam a natureza.' ,
+  'É importante para ela proteger o ambiente natural da destruição ou poluição.' ,
+  'É importante para ela ouvir e compreender as pessoas que são diferentes dela.' ,
+  'É importante para ela aceitar as pessoas como elas são, mesmo quando ela discorda delas.' ,
 ];
 
 const options = [
@@ -24,9 +25,14 @@ const options = [
   "Se parece muito comigo"
 ];
 
-
 export function VF_Quest_3() {
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+
+const handleAction = () => {
+  navigate('/pages/Significado/page_1')
+  console.log('Button clicked!');
+};
 
   const handleOptionSelect = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
@@ -68,6 +74,7 @@ export function VF_Quest_3() {
           ))}
         </tbody>
       </table>
+      <button onClick={handleAction}>Próximo</button>
     </div>
   );
 }

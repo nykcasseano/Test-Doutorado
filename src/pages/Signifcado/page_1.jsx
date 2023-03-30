@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from "react-router-dom";
 const questions = [
   "Eu sinto que minha vida tem sentido",
   "As coisas que faço na vida são significativas.",
@@ -21,38 +21,48 @@ const options = [
   "Concordo Totalmente"
 ];
 
-const Questionnaire = () => {
-  const [answers, setAnswers] = useState([]);
+export function Significado_page_1() {
+  const navigate = useNavigate();
+  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
-  const handleAnswer = (questionIndex, optionIndex) => {
+const handleAction = () => {
+  navigate('/pages/Valores-Fem/Quest_3')
+  console.log('Button clicked!');
+
+}
+
+  const handleOptionSelect = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
-  }
+  };
 
   return (
     <div>
+      <h2>Questionário</h2>
       <table>
         <thead>
           <tr>
-            <th> </th>
+            <th>Pergunta</th>
             {options.map((option, index) => (
               <th key={index}>{option}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {questions.map((question, index) => (
-            <tr key={index}>
+          {questions.map((question, questionIndex) => (
+            <tr key={questionIndex}>
               <td>{question}</td>
               {options.map((option, optionIndex) => (
                 <td key={optionIndex}>
                   <input
                     type="radio"
-                    name={`question${index}`}
+                    name={`question-${questionIndex}`}
                     value={optionIndex}
-                    checked={answers[index] === optionIndex}
-                    onChange={() => handleAnswer(index, optionIndex)}
+                    checked={answers[questionIndex] === optionIndex}
+                    onChange={() =>
+                      handleOptionSelect(questionIndex, optionIndex)
+                    }
                   />
                 </td>
               ))}
@@ -60,8 +70,7 @@ const Questionnaire = () => {
           ))}
         </tbody>
       </table>
+      <button onClick={handleAction}>Próximo</button>
     </div>
   );
-};
-
-export default Questionnaire;
+}

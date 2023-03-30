@@ -1,60 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const questions = [
-  { question: 'É importante para ele nunca irritar alguém.' },
-  { question: 'É importante para ele ser humilde.' },
-  { question: 'É importante para ele estar satisfeito com o que ele tem e não querer mais.' },
-  { question: 'É importante para ele que as pessoas que ele conhece tenham total confiança nele.' },
-  { question: 'É importante para ele que todos os seus amigos e família possam acreditar nele completamente.' },
-  { question: 'É importante para ele cuidar das pessoas das quais ele se sente próxima.' },
-  { question: 'É importante para ele se preocupar com todas as necessidades das suas pessoas queridas.' },
-  { question: 'É importante para ele que todas as pessoas no mundo tenham oportunidades iguais na vida.' },
-  { question: 'É importante para ele que todos sejam tratados com justiça, mesmo pessoas que ele não conhece.' },
-  { question: 'É importante para ele tomar parte nas atividades que defendam a natureza.' },
-  { question: 'É importante para ele proteger o ambiente natural da destruição ou poluição.' },
-  { question: 'É importante para ele ouvir e compreender as pessoas que são diferentes dele.' },
-  { question: 'É importante para ele aceitar as pessoas como elas são, mesmo quando ele discorda delas.' },
+  'É importante para ele nunca irritar alguém.' ,
+  'É importante para ele ser humilde.' ,
+  'É importante para ele estar satisfeito com o que ele tem e não querer mais.' ,
+  'É importante para ele que as pessoas que ele conhece tenham total confiança nele.' ,
+  'É importante para ele que todos os seus amigos e família possam acreditar nele completamente.' ,
+  'É importante para ele cuidar das pessoas das quais ele se sente próxima.' ,
+  'É importante para ele se preocupar com todas as necessidades das suas pessoas queridas.' ,
+  'É importante para ele que todas as pessoas no mundo tenham oportunidades iguais na vida.' ,
+  'É importante para ele que todos sejam tratados com justiça, mesmo pessoas que ele não conhece.' ,
+  'É importante para ele tomar parte nas atividades que defendam a natureza.' ,
+  'É importante para ele proteger o ambiente natural da destruição ou poluição.' ,
+  'É importante para ele ouvir e compreender as pessoas que são diferentes dele.' ,
+  'É importante para ele aceitar as pessoas como elas são, mesmo quando ele discorda delas.' ,
 ];
 
 const options = [
-  { text: 'Não se parece nada comigo', value: 1 },
-  { text: 'Se parece pouco comigo', value: 2 },
-  { text: 'Se parece mais ou menos comigo', value: 3 },
-  { text: 'Se parece comigo', value: 4 },
-  { text: 'Se parece muito comigo', value: 5 },
+  "Não se parece nada comigo",
+  "Se parece pouco comigo",
+  "Se parece mais ou menos comigo",
+  "Se parece comigo",
+  "Se parece muito comigo"
 ];
 
 export function VM_Quest_3() {
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
+  const navigate = useNavigate();
+  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
-  function handleOptionClick(questionIndex, optionValue) {
+const handleAction = () => {
+  navigate('/pages/Significado/page_1')
+  console.log('Button clicked!');
+}
+
+  const handleOptionSelect = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
-    newAnswers[questionIndex] = optionValue;
+    newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
-  }
+  };
 
   return (
     <div>
-      {questions.map((q, i) => (
-        <div key={i}>
-          <span>{q.question}</span>
-          {options.map((o, j) => (
-            <label key={j}>
-              <input
-                type="radio"
-                name={`question-${i}`}
-                value={o.value}
-                checked={answers[i] === o.value}
-                onChange={() => handleOptionClick(i, o.value)}
-              />
-              {o.text}
-            </label>
+      <h2>Questionário</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Pergunta</th>
+            {options.map((option, index) => (
+              <th key={index}>{option}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {questions.map((question, questionIndex) => (
+            <tr key={questionIndex}>
+              <td>{question}</td>
+              {options.map((option, optionIndex) => (
+                <td key={optionIndex}>
+                  <input
+                    type="radio"
+                    name={`question-${questionIndex}`}
+                    value={optionIndex}
+                    checked={answers[questionIndex] === optionIndex}
+                    onChange={() =>
+                      handleOptionSelect(questionIndex, optionIndex)
+                    }
+                  />
+                </td>
+              ))}
+            </tr>
           ))}
-        </div>
-      ))}
-      <button onClick={() => console.log(answers)}>Enviar respostas</button>
+        </tbody>
+      </table>
+      <button onClick={handleAction}>Próximo</button>
     </div>
   );
 }
+
+
 
 

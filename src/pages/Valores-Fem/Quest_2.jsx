@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const questions = [
   "É importante para ela ter poder para conseguir com que as pessoas façam o que ela quer.",
   "É importante para ela ser a pessoa que diz aos outros o que fazer",
@@ -25,14 +25,20 @@ const options = [
 ];
 
 export function VF_Quest_2() {
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+
+const handleAction = () => {
+  navigate('/pages/Valores-Fem/Quest_3')
+  console.log('Button clicked!');
+
+}
 
   const handleOptionSelect = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
-    console.log(newAnswers)
-  };
+  }
 
   return (
     <div>
@@ -67,6 +73,7 @@ export function VF_Quest_2() {
           ))}
         </tbody>
       </table>
+      <button onClick={handleAction}>Próximo</button>
     </div>
   );
 }

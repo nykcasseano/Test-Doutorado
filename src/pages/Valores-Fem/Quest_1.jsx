@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const questions = [
   "É importante para ela desenvolver suas próprias opiniões:",
@@ -23,8 +24,17 @@ const options = [
   "Se parece muito comigo"
 ];
 
+
+
 export function VF_Quest_1() {
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+
+const handleAction = () => {
+  navigate('/pages/Valores-Fem/Quest_2')
+  console.log('Button clicked!');
+
+}
 
   const handleOptionSelect = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
@@ -65,6 +75,7 @@ export function VF_Quest_1() {
           ))}
         </tbody>
       </table>
+      <button onClick={handleAction}>Próximo</button>
     </div>
   );
 }
