@@ -24,7 +24,7 @@ export function SatisfacaoQ() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
-  navigate('/pages/Satisfacao/SatisfacaoQ')
+  navigate('/pages/Significado/SignificadoQ')
   console.log('Button clicked!');
 }
 

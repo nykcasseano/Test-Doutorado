@@ -21,7 +21,7 @@ const options = [
   "Concordo Totalmente"
 ];
 
-export function Significado_page_1() {
+export function SignificadoQ() {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
