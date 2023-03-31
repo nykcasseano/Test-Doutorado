@@ -16,6 +16,36 @@ export function Home() {
   const [states, setStates] = useState(['']);
   const [estadoAtua, setEstadoAtua] = useState('');
   console.log(sexo);
+  const estados = {
+    AC: 'Acre',
+    AL: 'Alagoas',
+    AP: 'Amapá',
+    AM: 'Amazonas',
+    BA: 'Bahia',
+    CE: 'Ceará',
+    DF: 'Distrito Federal',
+    ES: 'Espírito Santo',
+    GO: 'Goiás',
+    MA: 'Maranhão',
+    MT: 'Mato Grosso',
+    MS: 'Mato Grosso do Sul',
+    MG: 'Minas Gerais',
+    PA: 'Pará',
+    PB: 'Paraíba',
+    PR: 'Paraná',
+    PE: 'Pernambuco',
+    PI: 'Piauí',
+    RJ: 'Rio de Janeiro',
+    RN: 'Rio Grande do Norte',
+    RS: 'Rio Grande do Sul',
+    RO: 'Rondônia',
+    RR: 'Roraima',
+    SC: 'Santa Catarina',
+    SP: 'São Paulo',
+    SE: 'Sergipe',
+    TO: 'Tocantins'
+  };
+  
 
   useEffect(() => {
     const fetchStates = async () => {
@@ -70,7 +100,7 @@ export function Home() {
 
   return (
     <div >
-      <h1>HELAHSIDHS</h1>
+      <h1></h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="profissao">Profissão:</label>
         <select id="profissao" name="profissao" value={profissao} onChange={(e) => setProfissao(e.target.value)}>
@@ -116,16 +146,13 @@ export function Home() {
             <br />
           </div>
         </div>
-        <label htmlFor="estadoAtua">Estado em que atua:</label>
-        {states.length > 0 && (
-          <select id="estadoAtua" name="estadoAtua">
-            {states.map((state) => (
-              <option key={state} value={state}>
-                {state}
-              </option>
-            ))}
-          </select>
-        )}
+    
+<select id="estadoAtua" name="estadoAtua" value={estadoAtua} onChange={(e) => setEstadoAtua(e.target.value)}>
+  <option value="">Selecione uma opção</option>
+  {Object.keys(estados).map((sigla) => (
+    <option key={sigla} value={sigla}>{sigla} - {estados[sigla]}</option>
+  ))}
+</select>
 
         <label htmlFor="municipioAtua">Principal município em que atua:</label>
         <input type="text" id="municipioAtua" name="municipioAtua" /> <br /><br />

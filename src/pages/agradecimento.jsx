@@ -22,7 +22,7 @@ const handleAction = () => {
             </div>
             
             <div>
-                <button onClick={handleAction}>Próximo</button>
+                <button onClick={handleAction}>Enviar</button>
             </div>
             </>
         
