@@ -60,6 +60,21 @@ export function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Enviando');
+  
+    const Demografico = {
+        profissao,
+        nivelFormacao,
+        anoConclusao,
+        naoConcluiu,
+        estadoAtua,
+        municipio,
+        sexo,
+        dataNascimento,
+        medico,
+        especialidade,
+        cpf,
+
+    }
 
     try {
       await addDoc(collection(db, 'form'), {
@@ -83,6 +98,7 @@ export function Home() {
         }
       else if (sexo === 'Masculino') {
         navigate('/pages/Valores-Mas/Quest_1')
+        
       } else {
         navigate('/pages/Valores-Fem/Quest_1')
       }
