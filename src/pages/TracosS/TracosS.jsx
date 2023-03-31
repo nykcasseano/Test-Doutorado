@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db } from '../database/firebaseConfig';
+
 
 
 const questions = [
@@ -32,7 +31,8 @@ const options = [
 export function TracosS () {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
-  const handleAction = () => {
+
+const handleAction = () => {
   const allItems = Object.entries(sessionStorage);
   const dataToSave = {};
 
@@ -43,36 +43,17 @@ export function TracosS () {
 // enviar dataToSave para o banco de dados
 
   console.log(allItems, 'ConsoleAnswerHandleAction:', answers,'DataTOSAVE:', dataToSave);
-  // db.colection('FormTest').add({
-  //   allItems:allItems,
-  //   dataToSave:dataToSave
-  // }).then(()=> {
-
-  // }).catch( (err)=>{
-  //     console.log(err);
-  // })
-  try {
-    await addDoc(collection(db, 'form'), {
-      allItems,
-      dataToSave
-    }).then{
-      navigate('/pages/agradecimento')
-      console.log('Button clicked!');
-    
-    }
-
+  
+  navigate('/pages/agradecimento')
+  console.log('Button clicked!');
 
 }
-
-
 
 const handleOptionSelect = (questionIndex, optionIndex) => {
 const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
 };
-
-
 
   return (
     <div>
