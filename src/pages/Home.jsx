@@ -15,7 +15,14 @@ export function Home() {
   const [sexo, setSexo] = useState('');
   const [states, setStates] = useState(['']);
   const [estadoAtua, setEstadoAtua] = useState('');
+  const [municipioAtua,setmunicipioAtua] = useState('');
+  const [dataNascimento,setDataNascimento] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [medico,setmedico] =useState('');
+  const [especialidade,setespecialidade] =useState('');
+  
   console.log(sexo);
+
   const estados = {
     AC: 'Acre',
     AL: 'Alagoas',
@@ -107,23 +114,51 @@ export function Home() {
     }
   };
 
+  const handleProfissaoChange = (event) => {
+    setProfissao(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleNivelFormacaoChange = (event) => {
+    setNivelFormacao(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleEstadoAtuaChange = (event) => {
+    setEstadoAtua(event.target.value);
+    console.log(event.target.value);
+  };
+
+
+  const handleMunicipioAtuaChange = (event) => {
+    setmunicipioAtua(event.target.value);
+    console.log(event.target.value);
+  };
+
+
+
+  
   const handleAnoConclusaoChange = (e) => {
     setAnoConclusao(e.target.value);
     setNaoConcluiu(false);
+    console.log(anoConclusao)
   };
+
   const handleCheckboxChange = (e) => {
-    setNaoConcluiu(e.target.checked);
-    if (e.target.checked) {
-      setAnoConclusao('');
+    const checked = e.target.checked;
+    setNaoConcluiu(checked);
+    if (!checked) {
+      console.log(naoConcluiu);
     }
   };
+  
 
   return (
     <div >
       <h1></h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="profissao">Profissão:</label>
-        <select id="profissao" name="profissao" value={profissao} onChange={(e) => setProfissao(e.target.value)}>
+        <select id="profissao" name="profissao" value={profissao} onChange={handleProfissaoChange}>
           <option value="">Selecione uma opção</option>
           <option value="Enfermagem">Enfermagem</option>
           <option value="Farmácia">Farmácia</option>
@@ -135,7 +170,7 @@ export function Home() {
         </select><br /><br />
 
         <label htmlFor="nivelFormacao">Nível de Formação:</label>
-        <select id="nivelFormacao" name="nivelFormacao" value={nivelFormacao} onChange={(e) => setNivelFormacao(e.target.value)}>
+        <select id="nivelFormacao" name="nivelFormacao" value={nivelFormacao} onChange={handleNivelFormacaoChange}>
           <option value="">Selecione uma opção</option>
           <option value="Superior Completo">Superior Completo</option>
           <option value="Pós-graduação lato senso (ex.: residência)">Pós-graduação lato senso (ex.: residência)</option>
@@ -167,7 +202,7 @@ export function Home() {
           </div>
         </div>
     
-<select id="estadoAtua" name="estadoAtua" value={estadoAtua} onChange={(e) => setEstadoAtua(e.target.value)}>
+<select id="estadoAtua" name="estadoAtua" value={estadoAtua} onChange={handleEstadoAtuaChange} >
   <option value="">Selecione uma opção</option>
   {Object.keys(estados).map((sigla) => (
     <option key={sigla} value={sigla}>{sigla} - {estados[sigla]}</option>
@@ -175,7 +210,7 @@ export function Home() {
 </select>
 
         <label htmlFor="municipioAtua">Principal município em que atua:</label>
-        <input type="text" id="municipioAtua" name="municipioAtua" /> <br /><br />
+        <input type="text" id="municipioAtua" name="municipioAtua" value={municipioAtua} onChange={handleMunicipioAtuaChange} /> <br /><br />
 
 
 
