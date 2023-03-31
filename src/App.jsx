@@ -11,6 +11,7 @@ import {VM_Quest_3} from './pages/Valores-Mas/Quest_3'
 import {SatisfacaoQ}from './pages/Satisfacao/SatisfacaoQ'
 import {SignificadoQ} from './pages/Significado/SignificadoQ'
 import {TracosS} from './pages/TracosS/TracosS'
+import {Agradecimento} from './pages/agradecimento'
 
 
 
@@ -29,6 +30,7 @@ function App() {
         {   <Route path="/pages/Significado/SignificadoQ" element={<SignificadoQ/>} />} 
         {   <Route path="/pages/TracosS/TracosS" element={<TracosS/>} />} 
         {   <Route path="/pages/intro" element={<Intro/>} />} 
+        {<Route path="/pages/agradecimento" element={<Agradecimento/>} />}
     
     
         

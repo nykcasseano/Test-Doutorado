@@ -3,14 +3,8 @@ import { useNavigate } from "react-router-dom";
 import '../App.css'
 
 
-export function Intro() {
-  const navigate = useNavigate();
+export function Agradecimento() {
 
-
-const handleAction = () => {
-  navigate('/pages/Home')
-
-}
   return (
     <>
             <div>
@@ -21,9 +15,7 @@ const handleAction = () => {
             Obrigado! </h1>
             </div>
             
-            <div>
-                <button onClick={handleAction}>Enviar</button>
-            </div>
+            
             </>
         
 );

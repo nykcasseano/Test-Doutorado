@@ -47,14 +47,15 @@ export function Home() {
   };
   
 
-  useEffect(() => {
-    const fetchStates = async () => {
-      const response = await fetch('/api/states');
-      const data = await response.json();
-      setStates(data);
-    };
-    fetchStates();
-  }, []);
+  // useEffect(() => {
+  //   const fetchStates = async () => {
+  //     const response = await fetch('/api/states');
+  //     const data = await response.json();
+  //     setStates(data);
+  //     console.log(data);
+  //   };
+  //   fetchStates();
+  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,7 +78,10 @@ export function Home() {
       setNaoConcluiu(false);
       setEstadoAtua('');
 
-      if (sexo === 'Masculino') {
+      if (naoConcluiu) {
+          navigate('/pages/agradecimento')
+        }
+      else if (sexo === 'Masculino') {
         navigate('/pages/Valores-Mas/Quest_1')
       } else {
         navigate('/pages/Valores-Fem/Quest_1')
