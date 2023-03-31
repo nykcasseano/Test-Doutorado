@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+
+
 const questions = [
   "Eu sinto que minha vida tem sentido",
   "As coisas que faço na vida são significativas.",

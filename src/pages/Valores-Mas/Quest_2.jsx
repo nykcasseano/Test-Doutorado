@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const questions = [
   "É importante para ele ter poder para conseguir com que as pessoas façam o que ele quer.",
   "É importante para ele ser a pessoa que diz aos outros o que fazer",

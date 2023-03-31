@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const questions = [
   'É importante para ela nunca irritar alguém.' ,
   'É importante para ela ser humilde.' ,

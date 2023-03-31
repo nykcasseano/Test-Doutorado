@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const questions = [
   "É importante para ela desenvolver suas próprias opiniões:",
   "É importante para ela descobrir as coisas por si mesma:",

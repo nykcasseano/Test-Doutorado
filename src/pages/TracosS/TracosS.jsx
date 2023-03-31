@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+
 const questions = [
       "Costumo manipular os outros para conseguir o que quero.",
       "Costumo usar enganações ou mentiras para conseguir o que quero.",

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../App.css'
 
 
 export function Intro() {
@@ -26,7 +26,7 @@ const handleAction = () => {
             </div>
             
             <div>
-                <button onClick={handleAction}>Começar</button>
+                <button onClick={handleAction}>Começar!</button>
             </div>
             </>
         

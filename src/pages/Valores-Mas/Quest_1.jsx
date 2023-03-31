@@ -1,5 +1,7 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 
 const questions = [
   "É importante para ele desenvolver suas próprias opiniões:",

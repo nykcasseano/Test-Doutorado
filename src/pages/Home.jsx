@@ -1,8 +1,10 @@
-import '../App.css'
+import '../App.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../database/firebaseConfig';
+
+
 
 export function Home() {
   const navigate = useNavigate();
