@@ -18,8 +18,7 @@ export function Home() {
   const [municipioAtua,setmunicipioAtua] = useState('');
   const [dataNascimento,setDataNascimento] = useState('');
   const [cpf, setCpf] = useState('');
-  const [medico,setmedico] =useState('');
-  const [especialidade,setespecialidade] =useState('');
+  const [especialidade,setEspecialidade] =useState('');
   
   console.log(sexo);
 
@@ -77,11 +76,11 @@ export function Home() {
         municipio,
         sexo,
         dataNascimento,
-        medico,
         especialidade,
         cpf,
 
     }
+    console.log('valoresConstDemo:', Demografico);
 
     try {
       await addDoc(collection(db, 'form'), {
@@ -132,6 +131,21 @@ export function Home() {
 
   const handleMunicipioAtuaChange = (event) => {
     setmunicipioAtua(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleDataNascimentoChange = (event) => {
+    setDataNascimento(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleCpfChange = (event) => {
+    setCpf(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handlEspecialidadeChange = (event) => {
+    setEspecialidade(event.target.value);
     console.log(event.target.value);
   };
 
@@ -221,19 +235,15 @@ export function Home() {
         <label htmlFor="sexoMasculino">Masculino</label><br /><br />
 
         <label htmlFor="dataNascimento">Data de Nascimento:</label>
-        <input type="date" id="dataNascimento" name="dataNascimento" /><br /><br />
+        <input type="date" id="dataNascimento" name="dataNascimento"  value={dataNascimento} onChange={handleDataNascimentoChange} /> <br />
 
-        <label htmlFor="medico">Médico (atua em especialidade cirúrgica?):</label>
-        <input type="checkbox" id="medico" name="medico" value="sim" />
-        <label htmlFor="medico">Sim</label>
-        <input type="checkbox" id="medico" name="medico" value="nao" />
-        <label htmlFor="medico">Não</label><br /><br />
-
-        <label htmlFor="areaEspecialidade">Qual a área de especialidade?</label>
-        <input type="text" id="areaEspecialidade" name="areaEspecialidade" /><br /><br />
+        <label htmlFor="medico">Atua em especialidade cirurgica?</label> <br /><br />
+        
+        <label htmlFor="areaEspecialidade">Se sim,qual a área de especialidade?</label>
+        <input type="text" id="areaEspecialidade" name="areaEspecialidade"  value={especialidade} onChange={handlEspecialidadeChange}/><br /><br />
 
         <label htmlFor="cpf">4 primeiros dígitos do CPF:</label>
-        <input type="text" id="cpf" name="cpf" maxLength="4" /><br /><br />
+        <input type="text" id="cpf" name="cpf" maxLength="4"  value={cpf} onChange={handleCpfChange}/><br /><br />
 
         {/* <input type="submit" value="Submit" /> */}
 
