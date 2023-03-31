@@ -36,7 +36,7 @@ const handleAction = () => {
 
   return (
     <div>
-      <h2>Questionário</h2>
+      <h4>Abaixo você encontrará cinco afirmações com as quais pode ou não concordar. Indique o quanto concorda ou discorda com cada uma delas.</h4>
       <table>
         <thead>
           <tr>

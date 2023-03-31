@@ -1,45 +1,50 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+
 const questions = [
-  "Eu sinto que minha vida tem sentido",
-  "As coisas que faço na vida são significativas.",
-  "Eu tenho um propósito na minha vida",
-  "Sinto que com o meu trabalho, estou dando uma contribuição significativa para a sociedade",
-  "Eu sei muito bem quais são as prioridades na minha vida",
-  "Quando penso positivamente sobre meu futuro, coisas boas acontecem",
-  "Normalmente penso com otimismo sobre as coisas que acontecem, mesmo que sejam situações muito desafiadoras",
-  "Eu tendo a encontrar o lado bom de situações que parecem desoladoras."
-];
-
+      "Costumo manipular os outros para conseguir o que quero.",
+      "Costumo usar enganações ou mentiras para conseguir o que quero.",
+      "Costumo bajular as pessoas para conseguir o que quero.",
+      "Costumo explorar outras pessoas para meu próprio benefício.",
+      "Eu tendo a ter falta de remorso.",
+      "Costumo não me preocupar com a moralidade de minhas ações.",
+      "Eu tendo a ser insensível ou indiferente.",
+      "Eu costumo ser cínico.",
+      "Eu tendo a querer que os outros me admirem.",
+      "Eu tendo a querer que os outros prestem atenção em mim.",
+      "Eu tendo a buscar prestígio ou status.",
+      "Costumo esperar favores especiais dos outros."
+      ];
+      
 const options = [
-  "Discordo Totalmente",
-  "Discordo",
-  "Discordo ligeiramente",
-  "Nem concordo nem discordo",
-  "Concordo ligeiramente",
-  "Concordo",
-  "Concordo Totalmente"
+      "Discordo Totalmente",
+      "Discordo",
+      "Discordo ligeiramente",
+      "Nem concordo nem discordo",
+      "Concordo ligeiramente",
+      "Concordo",
+      "Concordo Totalmente"
 ];
 
-export function SignificadoQ() {
+export function TracosS () {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
-  navigate('/pages/TracosS/TracosS')
-  console.log('Button clicked!');
+// navigate('/pages/TracosS/TracosS')
+console.log('Button clicked!');
 
 }
 
-  const handleOptionSelect = (questionIndex, optionIndex) => {
-    const newAnswers = [...answers];
+const handleOptionSelect = (questionIndex, optionIndex) => {
+const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
-  };
+};
 
   return (
     <div>
-      <h4>Agora, pensando na sua vida em termos gerais, por favor responda às questões abaixo. Provavelmente, algumas dessas afirmações não irão descrever bem como você avalia a sua vida, enquanto que outras irão descrever melhor o seu sentimento.</h4>
+      <h4>Por favor, avalie o quanto você Discorda ou Concorda com as assertivas a seguir:</h4>
       <table>
         <thead>
           <tr>
@@ -74,3 +79,4 @@ const handleAction = () => {
     </div>
   );
 }
+

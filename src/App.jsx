@@ -1,5 +1,6 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
+import {Intro} from './pages/intro';
 import { Home } from './pages/Home';
 import {VF_Quest_1} from './pages/Valores-Fem/Quest_1'
 import {VF_Quest_2} from './pages/Valores-Fem/Quest_2'
@@ -9,7 +10,7 @@ import {VM_Quest_2} from './pages/Valores-Mas/Quest_2'
 import {VM_Quest_3} from './pages/Valores-Mas/Quest_3'
 import {SatisfacaoQ}from './pages/Satisfacao/SatisfacaoQ'
 import {SignificadoQ} from './pages/Significado/SignificadoQ'
-// import {TracoS_page_1} from './pages/Traco/page_1'
+import {TracosS} from './pages/TracosS/TracosS'
 
 
 function App() {
@@ -24,7 +25,10 @@ function App() {
         { <Route path="/pages/Valores-Mas/Quest_2" element={<VM_Quest_2 />} />}
         { <Route path="/pages/Valores-Mas/Quest_3" element={<VM_Quest_3 />} />}
         {   <Route path="/pages/Satisfacao/SatisfacaoQ" element={<SatisfacaoQ/>} />} 
-        {   <Route path="/pages/Significado/page_1" element={<SignificadoQ/>} />} 
+        {   <Route path="/pages/Significado/SignificadoQ" element={<SignificadoQ/>} />} 
+        {   <Route path="/pages/TracosS/TracosS" element={<TracosS/>} />} 
+        {   <Route path="/pages/intro" element={<Intro/>} />} 
+    
     
         
       </Routes>
