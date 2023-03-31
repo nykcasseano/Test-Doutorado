@@ -67,21 +67,7 @@ export function Home() {
     e.preventDefault();
     console.log('Enviando');
   
-    const Demografico = {
-        profissao,
-        nivelFormacao,
-        anoConclusao,
-        naoConcluiu,
-        estadoAtua,
-        municipio,
-        sexo,
-        dataNascimento,
-        especialidade,
-        cpf,
-
-    }
-    console.log('valoresConstDemo:', Demografico);
-
+  
     try {
       await addDoc(collection(db, 'form'), {
         profissao,
@@ -166,6 +152,20 @@ export function Home() {
     }
   };
   
+  const Demografico = {
+    profissao,
+    nivelFormacao,
+    anoConclusao,
+    naoConcluiu,
+    estadoAtua,
+    municipioAtua,
+    sexo,
+    dataNascimento,
+    especialidade,
+    cpf,
+
+}
+console.log('valoresConstDemo:', Demografico);
 
   return (
     <div >
