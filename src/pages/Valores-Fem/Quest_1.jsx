@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
+
 const questions = [
   "É importante para ela desenvolver suas próprias opiniões:",
   "É importante para ela descobrir as coisas por si mesma:",
@@ -30,7 +31,7 @@ const options = [
 export function VF_Quest_1() {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
-
+  
 const handleAction = () => {
   sessionStorage.setItem('formQuest1Fem', JSON.stringify(answers));
   navigate('/pages/Valores-Fem/Quest_2')
