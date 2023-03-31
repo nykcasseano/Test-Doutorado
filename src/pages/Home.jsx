@@ -68,6 +68,8 @@ export function Home() {
     console.log('Enviando');
   
   
+  
+
     try {
       await addDoc(collection(db, 'form'), {
         profissao,
@@ -84,6 +86,8 @@ export function Home() {
       setAnoConclusao('');
       setNaoConcluiu(false);
       setEstadoAtua('');
+      sessionStorage.setItem('formDemografico', JSON.stringify(Demografico));
+
 
       if (naoConcluiu) {
           navigate('/pages/agradecimento')
