@@ -32,6 +32,7 @@ export function VM_Quest_1() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
+  sessionStorage.setItem('formQuest1Mas', JSON.stringify(answers));
   navigate('/pages/Valores-Mas/Quest_2')
   console.log('Button clicked!');
 

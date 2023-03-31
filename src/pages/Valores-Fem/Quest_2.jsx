@@ -31,6 +31,7 @@ export function VF_Quest_2() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
+  sessionStorage.setItem('formQuest2Fem', JSON.stringify(answers));
   navigate('/pages/Valores-Fem/Quest_3')
   console.log('Button clicked!');
 

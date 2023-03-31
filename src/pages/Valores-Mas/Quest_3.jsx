@@ -27,10 +27,12 @@ const options = [
 ];
 
 export function VM_Quest_3() {
+  
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
+  sessionStorage.setItem('formQuest3Mas', JSON.stringify(answers));
   navigate('/pages/Satisfacao/SatisfacaoQ')
   console.log('Button clicked!');
 }

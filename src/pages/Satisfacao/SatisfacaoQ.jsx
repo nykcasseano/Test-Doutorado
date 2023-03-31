@@ -20,10 +20,12 @@ const options = [
 ];
 
 export function SatisfacaoQ() {
+ 
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
+  sessionStorage.setItem('formSatisfacao', JSON.stringify(answers));
   navigate('/pages/Significado/SignificadoQ')
   console.log('Button clicked!');
 }

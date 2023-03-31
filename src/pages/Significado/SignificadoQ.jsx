@@ -24,10 +24,12 @@ const options = [
 ];
 
 export function SignificadoQ() {
+ 
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
+  sessionStorage.setItem('formSignificado', JSON.stringify(answers));
   navigate('/pages/TracosS/TracosS')
   console.log('Button clicked!');
 

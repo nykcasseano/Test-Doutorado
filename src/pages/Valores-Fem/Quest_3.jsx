@@ -31,6 +31,7 @@ export function VF_Quest_3() {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
+  sessionStorage.setItem('formQuest3Fem', JSON.stringify(answers));
   navigate('/pages/Satisfacao/SatisfacaoQ')
   console.log('Button clicked!');
 };

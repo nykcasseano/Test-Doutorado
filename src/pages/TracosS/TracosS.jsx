@@ -32,8 +32,19 @@ export function TracosS () {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
 const handleAction = () => {
-// navigate('/pages/TracosS/TracosS')
-console.log('Button clicked!');
+  const allItems = Object.entries(sessionStorage);
+  const dataToSave = {};
+
+  for (const [key, value] of Object.entries(sessionStorage)) {
+  dataToSave[key] = value;
+}
+
+// enviar dataToSave para o banco de dados
+
+  console.log(allItems, 'ConsoleAnswerHandleAction:', answers,'DataTOSAVE:', dataToSave);
+  
+  navigate('/pages/agradecimento')
+  console.log('Button clicked!');
 
 }
 
