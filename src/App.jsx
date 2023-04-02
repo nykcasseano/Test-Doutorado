@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Intro />} />
         { <Route path="/pages/Valores-Fem/Quest_1" element={<VF_Quest_1 />} />}
         {   <Route path="/pages/Valores-Fem/Quest_2" element={<VF_Quest_2 />} />} 
         {   <Route path="/pages/Valores-Fem/Quest_3" element={<VF_Quest_3 />} />} 
@@ -29,7 +29,7 @@ function App() {
         {   <Route path="/pages/Satisfacao/SatisfacaoQ" element={<SatisfacaoQ/>} />} 
         {   <Route path="/pages/Significado/SignificadoQ" element={<SignificadoQ/>} />} 
         {   <Route path="/pages/TracosS/TracosS" element={<TracosS/>} />} 
-        {   <Route path="/pages/intro" element={<Intro/>} />} 
+        {   <Route path="/pages/Home" element={<Home/>} />} 
         {<Route path="/pages/agradecimento" element={<Agradecimento/>} />}
     
     

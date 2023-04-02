@@ -13,8 +13,9 @@ const handleAction = () => {
 }
   return (
     <>
+    <div class= "container">
             <div>
-            <h1> PESQUISA COM PROFISSIONAIS DA SAÚDE  </h1>
+            <h2 > PESQUISA COM PROFISSIONAIS DA SAÚDE  </h2>
             </div>
             
             <div>
@@ -27,6 +28,7 @@ const handleAction = () => {
             
             <div>
                 <button onClick={handleAction}>Começar!</button>
+            </div>
             </div>
             </>
         

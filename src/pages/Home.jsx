@@ -172,7 +172,9 @@ export function Home() {
 console.log('valoresConstDemo:', Demografico);
 
   return (
-    <div >
+    <div class="container">
+      <div class="inputs-container">
+          <div >
       <h1></h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="profissao">Profissão:</label>
@@ -253,6 +255,8 @@ console.log('valoresConstDemo:', Demografico);
 
         <button type="submit">Próximo</button>
       </form>
+    </div>
+    </div>
     </div>
   )
 }

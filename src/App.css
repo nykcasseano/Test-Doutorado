@@ -39,3 +39,74 @@
 .form-submit:hover {
   background-color: #3e8e41;
 }
+
+
+
+
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./foto-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.container, Quest {
+  background-color: #cdd1d3cc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  text-align: center;
+  padding: 50px 120px 50px 120px;
+
+  max-width: none;
+}
+
+.Quest {
+}
+
+
+.container h2 {
+  margin-bottom: 50px;
+  font-size: 1.9em;
+  
+  
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container p {
+  margin-bottom: 10px;
+}
+
+.container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #005ae6;
+}
+td{
+  padding-top: 20px;
+  background-color: white;
+
+}
+/* 
+<table>
+        <thead> */
