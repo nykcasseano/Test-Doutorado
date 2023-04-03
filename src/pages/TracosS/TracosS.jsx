@@ -1,4 +1,4 @@
-import '../App.css'
+import '../../App.css'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
@@ -33,11 +33,12 @@ const options = [
 export function TracosS() {
     const navigate = useNavigate();
     const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+    const [teste, setTeste] = useState(true);
     
+
     const handleSubmit = async (e) => {
       e.preventDefault();
-  
-      
+        
       try {
         await addDoc(collection(db, 'form'), {
             answers,
@@ -47,10 +48,13 @@ export function TracosS() {
   
 
         setAnswers('');
+        setTeste(true);
+        handleSession();
   
-        setTimeout(function() {
+        if (teste === true) {
           navigate('/pages/agradecimento')
-        }, 01);
+
+        }
         
 
       } catch (error) {
