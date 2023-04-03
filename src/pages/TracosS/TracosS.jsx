@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { addDoc, collection, serverTimestamp} from 'firebase/firestore';
+import '../App.css'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../database/firebaseConfig';
 
 const questions = [
@@ -16,8 +17,8 @@ const questions = [
   "Eu tendo a querer que os outros prestem atenção em mim.",
   "Eu tendo a buscar prestígio ou status.",
   "Costumo esperar favores especiais dos outros."
-];
-      
+  ];
+  
 const options = [
   "Discordo Totalmente",
   "Discordo",
@@ -28,44 +29,58 @@ const options = [
   "Concordo Totalmente"
 ];
 
-export function TracosS () {
-  const navigate = useNavigate();
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
-  const handleOptionSelect = (questionIndex, optionIndex) => {
-    const newAnswers = [...answers];
-    newAnswers[questionIndex] = optionIndex;
-    setAnswers(newAnswers);
+export function TracosS() {
+    const navigate = useNavigate();
+    const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      
+      try {
+        await addDoc(collection(db, 'form'), {
+            answers,
+            dataToSave,
+          timestamp: serverTimestamp(),
+        });
+  
+
+        setAnswers('');
+  
+        setTimeout(function() {
+          navigate('/pages/agradecimento')
+        }, 01);
+        
+
+      } catch (error) {
+            console.error('Error submitting form: ', error);
+        
+        }
+
+
+    }
+
+
+    const handleSession = () => {
+      const allItems = Object.entries(sessionStorage);
+      const dataToSave = {};
+  
+      for (const [key, value] of Object.entries(sessionStorage)) {
+          dataToSave[key] = value;
+      }   
   };
-    
-  async function saveDataToFirestore() {
-    const allItems = Object.entries(sessionStorage);
-    const dataToSave = {};
-    
-    for (const [key, value] of Object.entries(sessionStorage)) {
-      dataToSave[key] = value;
-    }
-    
-    try {
-      await addDoc(collection(db, 'form'), {
-        dataToSave,
-        allItems,
-        timestamp: serverTimestamp(),
-      });
-    } catch (err) {
-      // lidar com o erro aqui
-      console.error(err);
-    } finally {
-      navigate('/pages/agradecimento');
-      console.log('Button clicked!');
-    }
-  }
 
-  const handleAction = () => {
-    saveDataToFirestore();
-  }
+  
 
-return (
+    const handleOptionSelect = (questionIndex, optionIndex) => {
+      const newAnswers = [...answers];
+      newAnswers[questionIndex] = optionIndex;
+      setAnswers(newAnswers);
+  };
+
+
+  return (
     <div>
       <h4>Por favor, avalie o quanto você Discorda ou Concorda com as assertivas a seguir:</h4>
       <table>
@@ -101,4 +116,5 @@ return (
       <button onClick={handleAction}>Próximo</button>
     </div>
   );
-}
+
+};
