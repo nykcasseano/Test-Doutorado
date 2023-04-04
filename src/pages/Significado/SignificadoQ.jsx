@@ -24,7 +24,7 @@ const options = [
 ];
 
 export function SignificadoQ() {
- 
+
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
@@ -42,6 +42,9 @@ const handleAction = () => {
   };
 
   return (
+    <div class="container">
+    <div class="Quest">
+      <div class="inputs-container"></div>
     <div>
       <h4>Agora, pensando na sua vida em termos gerais, por favor responda às questões abaixo. Provavelmente, algumas dessas afirmações não irão descrever bem como você avalia a sua vida, enquanto que outras irão descrever melhor o seu sentimento.</h4>
       <table>
@@ -76,5 +79,8 @@ const handleAction = () => {
       </table>
       <button onClick={handleAction}>Próximo</button>
     </div>
+    </div>
+    </div>
+
   );
 }

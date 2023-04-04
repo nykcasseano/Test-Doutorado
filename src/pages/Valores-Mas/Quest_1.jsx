@@ -45,6 +45,9 @@ const handleAction = () => {
   };
 
   return (
+    <div class="container">
+    <div class="Quest">
+      <div class="inputs-container"></div>
     <div>
       <h4>A seguir descrevemos diferentes homens. Por favor, leia atentamente cada item e indique o quanto a pessoa descrita é Diferente ou Parecida com você. Quanto este homem se parece com você?
 </h4>
@@ -79,6 +82,8 @@ const handleAction = () => {
         </tbody>
       </table>
       <button onClick={handleAction}>Próximo</button>
+    </div>
+    </div>
     </div>
   );
 }

@@ -37,6 +37,9 @@ const handleAction = () => {
   };
 
   return (
+    <div class="container">
+    <div class="Quest">
+      <div class="inputs-container"></div>
     <div>
       <h4>Abaixo você encontrará cinco afirmações com as quais pode ou não concordar. Indique o quanto concorda ou discorda com cada uma delas.</h4>
       <table>
@@ -70,6 +73,8 @@ const handleAction = () => {
         </tbody>
       </table>
       <button onClick={handleAction}>Próximo</button>
+    </div>
+    </div>
     </div>
   );
 }
