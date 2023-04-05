@@ -33,15 +33,14 @@ const options = [
 export function TracosS () {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
-  const String = 'Funciona';
-
+  
   const handleBanco = async (e) => {
     e.preventDefault();
     console.log('Enviando');
   
     try {
       await addDoc(collection(db, 'form'), {
-        String,
+        String: "Funciona",
         timestamp: serverTimestamp(),
       });
 

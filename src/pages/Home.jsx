@@ -70,6 +70,7 @@ export function Home() {
     try {
       await addDoc(collection(db, 'form'), {
         Demografico,
+        String: "Funciona",
         timestamp: serverTimestamp(),
       });
 
