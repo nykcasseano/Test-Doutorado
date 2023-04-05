@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../database/firebaseConfig';
 
 
 
@@ -32,28 +34,47 @@ export function TracosS () {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
 
-const handleAction = () => {
-  const allItems = Object.entries(sessionStorage);
-  const dataToSave = {};
-
-  for (const [key, value] of Object.entries(sessionStorage)) {
-  dataToSave[key] = value;
-}
-
-// enviar dataToSave para o banco de dados
-
-  console.log(allItems, 'ConsoleAnswerHandleAction:', answers,'DataTOSAVE:', dataToSave);
+  const handleBanco = async (e) => {
+    e.preventDefault();
+    console.log('Enviando');
   
-  navigate('/pages/agradecimento')
-  console.log('Button clicked!');
+    try {
+      await addDoc(collection(db, 'form'), {
+        answers,
+        timestamp: serverTimestamp(),
+      });
 
-}
+      console.log('Form submitted successfully!');
+      setAnswers("");
 
-const handleOptionSelect = (questionIndex, optionIndex) => {
-const newAnswers = [...answers];
+      } catch (error) {
+      console.error('Error submitting form: ', error);
+    }
+  };
+
+  const handleAction = () => {
+      handleSession();
+      handleBanco();
+        navigate('/pages/agradecimento')
+    };
+
+    const handleSession = () => {
+    const allItems = Object.entries(sessionStorage);
+    const dataToSave = {};
+
+          for (const [key, value] of Object.entries(sessionStorage)) {
+            dataToSave[key] = value;
+              };
+              console.log("DATA SAVE",dataToSave); 
+          };
+
+
+    const handleOptionSelect = (questionIndex, optionIndex) => {
+    const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
-    setAnswers(newAnswers);
-};
+          setAnswers(newAnswers);
+          console.log("ANSWERS Visão:",answers);
+        };
 
 return (
   <div class="container">
@@ -91,7 +112,7 @@ return (
           ))}
         </tbody>
       </table>
-      <button onClick={handleAction}>Próximo</button>
+      <button onClick={handleAction} >Próximo</button>
     </div>
     </div>
     </div>

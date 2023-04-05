@@ -67,16 +67,9 @@ export function Home() {
     e.preventDefault();
     console.log('Enviando');
   
-  
-  
-
     try {
       await addDoc(collection(db, 'form'), {
-        profissao,
-        nivelFormacao,
-        anoConclusao,
-        naoConcluiu,
-        estadoAtua,
+        Demografico,
         timestamp: serverTimestamp(),
       });
 
@@ -105,7 +98,7 @@ export function Home() {
 
   const handleProfissaoChange = (event) => {
     setProfissao(event.target.value);
-    console.log(event.target.value);
+    console.log(profissao.target.value);
   };
 
   const handleNivelFormacaoChange = (event) => {
