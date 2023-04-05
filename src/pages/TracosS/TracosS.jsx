@@ -34,27 +34,27 @@ export function TracosS () {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
   
-  const handleBanco = async (e) => {
-    e.preventDefault();
-    console.log('Enviando');
+  const handleSubmit = async () => {
+
   
     try {
       await addDoc(collection(db, 'form'), {
-        String: "Funciona",
+        String: "LKDDKSGLKDSGLKJDSLKGSLDKGLDSKGLSDKGDGNLKNIRUIOIELKMCF",
         timestamp: serverTimestamp(),
       });
 
-      console.log('Form submitted successfully!');
-      setAnswers("");
+        console.log('Form submitted successfully!');
+         
 
-      } catch (error) {
+    } catch (error) {
       console.error('Error submitting form: ', error);
     }
-  };
 
+
+  };
   const handleAction = () => {
       handleSession();
-      handleBanco();
+      handleSubmit();
         navigate('/pages/agradecimento')
     };
 
