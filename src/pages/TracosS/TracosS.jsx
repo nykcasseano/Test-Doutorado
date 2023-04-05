@@ -39,7 +39,9 @@ export function TracosS () {
   
     try {
       await addDoc(collection(db, 'form'), {
-        String: "LKDDKSGLKDSGLKJDSLKGSLDKGLDSKGLSDKGDGNLKNIRUIOIELKMCF",
+        String: "LKDDKSGLKDSGLKJDSLKGSLDKG!!!",
+        answers,
+        dataToSave,
         timestamp: serverTimestamp(),
       });
 
