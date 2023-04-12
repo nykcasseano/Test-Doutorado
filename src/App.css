@@ -68,6 +68,9 @@ body {
   max-width: none;
 }
 
+
+
+
 .container h2 {
   margin-bottom: 50px;
   font-size: 1.9em;
@@ -98,10 +101,20 @@ body {
 .container button:hover {
   background-color: #005ae6;
 }
+
 td{
   padding-top: 20px;
-  background-color: white;
+  background-color:white;
+  font-size: 20px;
 
+}
+
+th {
+  color: #343E56;
+  font-weight: 600;
+  background-color: #e5eaf4;
+  padding: 20px;
+  font-size: 18px;
 }
 /* 
 <table>
