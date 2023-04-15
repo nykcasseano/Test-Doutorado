@@ -165,44 +165,51 @@ export function Home() {
 }
 console.log('valoresConstDemo:', Demografico);
 
-  return (
-    <div class="container">
-      <div class="inputs-container">
-          <div >
-      <h1></h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="profissao">Profissão:</label>
-        <select id="profissao" name="profissao" value={profissao} onChange={handleProfissaoChange}>
-          <option value="">Selecione uma opção</option>
-          <option value="Enfermagem">Enfermagem</option>
-          <option value="Farmácia">Farmácia</option>
-          <option value="Fisioterapia">Fisioterapia</option>
-          <option value="Medicina">Medicina</option>
-          <option value="Nutrição">Nutrição</option>
-          <option value="Odontologia">Odontologia</option>
-          <option value="Psicologia">Psicologia</option>
-        </select><br /><br />
+return (
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1></h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="profissao">Profissão:</label>
+            <select id="profissao" name="profissao" value={profissao} onChange={handleProfissaoChange} className="form-control">
+              <option value="">Selecione uma opção</option>
+              <option value="Enfermagem">Enfermagem</option>
+              <option value="Farmácia">Farmácia</option>
+              <option value="Fisioterapia">Fisioterapia</option>
+              <option value="Medicina">Medicina</option>
+              <option value="Nutrição">Nutrição</option>
+              <option value="Odontologia">Odontologia</option>
+              <option value="Psicologia">Psicologia</option>
+            </select>
+          </div>
 
-        <label htmlFor="nivelFormacao">Nível de Formação:</label>
-        <select id="nivelFormacao" name="nivelFormacao" value={nivelFormacao} onChange={handleNivelFormacaoChange}>
-          <option value="">Selecione uma opção</option>
-          <option value="Superior Completo">Superior Completo</option>
-          <option value="Pós-graduação lato senso (ex.: residência)">Pós-graduação lato senso (ex.: residência)</option>
-          <option value="Mestrado">Mestrado</option>
-          <option value="Doutorado">Doutorado</option>
-          <option value="Pós-Doutorado">Pós-Doutorado</option>
-        </select><br /><br />
-        <div>
-          <label htmlFor="anoConclusao">Em que ano concluiu seu curso superior:</label>
-          <select id="anoConclusao" name="anoConclusao" value={anoConclusao} onChange={handleAnoConclusaoChange}>
-            <option value="">Selecione</option>
-            {Array.from({ length: 39 }, (_, i) => 2022 - i).map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
-          <div>
+          <div className="form-group">
+            <label htmlFor="nivelFormacao">Nível de Formação:</label>
+            <select id="nivelFormacao" name="nivelFormacao" value={nivelFormacao} onChange={handleNivelFormacaoChange} className="form-control">
+              <option value="">Selecione uma opção</option>
+              <option value="Superior Completo">Superior Completo</option>
+              <option value="Pós-graduação lato senso (ex.: residência)">Pós-graduação lato senso (ex.: residência)</option>
+              <option value="Mestrado">Mestrado</option>
+              <option value="Doutorado">Doutorado</option>
+              <option value="Pós-Doutorado">Pós-Doutorado</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="anoConclusao">Em que ano concluiu seu curso superior:</label>
+            <select id="anoConclusao" name="anoConclusao" value={anoConclusao} onChange={handleAnoConclusaoChange} className="form-control">
+              <option value="">Selecione</option>
+              {Array.from({ length: 39 }, (_, i) => 2022 - i).map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group">
             <label htmlFor="naoConcluiu">Marque se ainda não concluiu o curso:</label>
             <input
               type="checkbox"
@@ -211,17 +218,20 @@ console.log('valoresConstDemo:', Demografico);
               checked={naoConcluiu}
               onChange={handleCheckboxChange}
             />
-            <br />
-            <br />
           </div>
-        </div>
-    
-<select id="estadoAtua" name="estadoAtua" value={estadoAtua} onChange={handleEstadoAtuaChange} >
-  <option value="">Selecione uma opção</option>
-  {Object.keys(estados).map((sigla) => (
-    <option key={sigla} value={sigla}>{sigla} - {estados[sigla]}</option>
-  ))}
-</select>
+
+          <div className="form-group">
+            <label htmlFor="estadoAtua">Estado:</label>
+            <select id="estadoAtua" name="estadoAtua" value={estadoAtua} onChange={handleEstadoAtuaChange} className="form-control">
+              <option value="">Selecione uma opção</option>
+              {Object.keys(estados).map((sigla) => (
+                <option key={sigla} value={sigla}>{sigla} - {estados[sigla]}</option>
+              ))}
+            </select>
+          </div>
+
+         
+
 
         <label htmlFor="municipioAtua">Principal município em que atua:</label>
         <input type="text" id="municipioAtua" name="municipioAtua" value={municipioAtua} onChange={handleMunicipioAtuaChange} /> <br /><br />

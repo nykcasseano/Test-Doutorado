@@ -1,3 +1,5 @@
+/* Formulário */
+
 .form-container {
   max-width: 600px;
   margin: 0 auto;
@@ -14,7 +16,9 @@
 }
 
 .form-select {
-  width: 100%;
+  display: inline-block; /* adicionado */
+  width: calc(50% - 5px); /* adicionado para garantir que os elementos fiquem lado a lado */
+  margin-right: 10px; /* adicionado para dar espaço entre os elementos */
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 0.25rem;
@@ -24,7 +28,9 @@
 }
 
 .form-checkbox {
-  margin-right: 0.5rem;
+  display: inline-block; /* adicionado */
+  margin-right: 1rem;
+  margin-left: 0.5rem; /* adicionado para dar espaço entre os elementos */
 }
 
 .form-submit {
@@ -40,10 +46,7 @@
   background-color: #3e8e41;
 }
 
-
-
-
-
+/* Página */
 
 body {
   display: flex;
@@ -53,10 +56,9 @@ body {
   background-image: url("./foto-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
-.container, Quest {
+.container {
   background-color: #cdd1d3cc;
   padding: 20px;
   border-radius: 10px;
@@ -64,58 +66,66 @@ body {
   max-width: 600px;
   text-align: center;
   padding: 50px 120px 50px 120px;
-
   max-width: none;
 }
-
-
-
 
 .container h2 {
   margin-bottom: 50px;
   font-size: 1.9em;
-  
-  
-}
-
-.inputs-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }
 
 .container p {
   margin-bottom: 10px;
 }
 
-.container button {
+table {
+  border-collapse: collapse;
+  width: 100%;
   margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #0077ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-.container button:hover {
-  background-color: #005ae6;
-}
-
-td{
-  padding-top: 20px;
-  background-color:white;
-  font-size: 20px;
-
+td, th {
+  text-align: left;
+  padding: 8px;
+  font-size: 16px;
 }
 
 th {
   color: #343E56;
   font-weight: 600;
   background-color: #e5eaf4;
-  padding: 20px;
-  font-size: 18px;
 }
-/* 
-<table>
-        <thead> */
+
+/* Responsividade */
+
+@media screen and (max-width: 768px) {
+  .container {
+  padding: 30px;
+  }
+  
+  .form-select {
+  display: block;
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 10px; /* adicionado para dar espaço entre os elementos */
+  }
+  
+  .form-checkbox {
+  display: block;
+  margin-right: 0;
+  margin-left: 0; /* adicionado para remover o espaço entre os elementos /
+  margin-bottom: 10px; / adicionado para dar espaço entre os elementos */
+  }
+  }
+  .inputs-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .pergunta-esquerda {
+    margin-right: 20px;
+  }
+  
+  .pergunta-direita {
+    margin-left: 20px;
+  }
+  
