@@ -68,9 +68,9 @@ export function Home() {
     console.log('Enviando');
   
     try {
-      addDoc(collection(db, 'form'), {
-        
-        
+      await addDoc(collection(db, 'form'), {
+        Demografico,
+        timestamp: serverTimestamp(),
       });
 
       console.log('Form submitted successfully!');
