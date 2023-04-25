@@ -36,12 +36,11 @@ const options = [
 export function TracosS () {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
-  const formDemografico2 = JSON.parse(window.sessionStorage.getItem('formDemografico'));
-  const formQuest1Fem2 = JSON.parse(window.sessionStorage.getItem('formQuest1Fem'))
-  console.log("FORM DEMOGRÀFICO 2",formDemografico2);
-  console.log("FORM QUEST1FEM 2",formQuest1Fem2);
   const handleSubmit = async () => {
-
+    const formDemografico = JSON.parse(window.sessionStorage.getItem('formDemografico'));
+    const formQuest1Fem = window.sessionStorage.getItem('formQuest1Fem')
+    console.log("FORM DEMOGRÀFICO 1", formDemografico);
+    console.log("FORM QUEST1FEM 1", formQuest1Fem);
   
     try {
       await addDoc(collection(db, 'form'), {
@@ -75,10 +74,7 @@ export function TracosS () {
             dataToSave[key] = value;
               };
               console.log("DATA SAVE",dataToSave);
-              const formDemografico = JSON.parse(window.sessionStorage.getItem('formDemografico'));
-              const formQuest1Fem = JSON.parse(window.sessionStorage.getItem('formQuest1Fem'))
-              console.log("FORM DEMOGRÀFICO 1", formDemografico);
-              console.log("FORM QUEST1FEM 1", formQuest1Fem);
+              
           };
 
 
