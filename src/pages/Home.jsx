@@ -68,11 +68,7 @@ export function Home() {
     console.log('Enviando');
   
     try {
-      await addDoc(collection(db, 'form'), {
-        Demografico,
-        timestamp: serverTimestamp(),
-      });
-
+     
       console.log('Form submitted successfully!');
       setProfissao('');
       setNivelFormacao('');

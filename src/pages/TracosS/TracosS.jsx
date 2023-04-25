@@ -35,19 +35,26 @@ const options = [
 
 export function TracosS () {
   const navigate = useNavigate();
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+  const [tracos, setTracos] = useState(new Array(questions.length).fill(0));
   const handleSubmit = async () => {
     const formDemografico = JSON.parse(window.sessionStorage.getItem('formDemografico'));
-    const formQuest1Fem = window.sessionStorage.getItem('formQuest1Fem')
+    const formQuest1Fem =JSON.parse(window.sessionStorage.getItem('formQuest1Fem'));
+    const formQuest2Fem = JSON.parse(window.sessionStorage.getItem('formQuest2Fem'));
+    const formQuest3Fem = JSON.parse(window.sessionStorage.getItem('formQuest3Fem'));
+    const formSatisfacao = JSON.parse(window.sessionStorage.getItem('formSatisfacao'));
+    const formSignificado = JSON.parse(window.sessionStorage.getItem('formSignificado'));
     console.log("FORM DEMOGRÀFICO 1", formDemografico);
     console.log("FORM QUEST1FEM 1", formQuest1Fem);
   
     try {
       await addDoc(collection(db, 'form'), {
-        String: "LKDDKSGLKDSGLKJDSLKGSLDKG!!!",
-        answers,
         formDemografico,
         formQuest1Fem,
+        formQuest2Fem,
+        formQuest3Fem,
+        formSatisfacao,
+        formSignificado,
+        tracos,
         timestamp: serverTimestamp(),
       });
 
@@ -79,10 +86,10 @@ export function TracosS () {
 
 
     const handleOptionSelect = (questionIndex, optionIndex) => {
-    const newAnswers = [...answers];
-    newAnswers[questionIndex] = optionIndex;
-          setAnswers(newAnswers);
-          console.log("ANSWERS Visão:",answers);
+    const newTracos = [...tracos];
+    newTracos[questionIndex] = optionIndex;
+          setTracos(newTracos);
+          console.log("ANSWERS Visão:",tracos);
         };
 
 return (
@@ -110,7 +117,7 @@ return (
                     type="radio"
                     name={`question-${questionIndex}`}
                     value={optionIndex}
-                    checked={answers[questionIndex] === optionIndex}
+                    checked={tracos[questionIndex] === optionIndex}
                     onChange={() =>
                       handleOptionSelect(questionIndex, optionIndex)
                     }
