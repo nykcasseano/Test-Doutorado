@@ -39,12 +39,13 @@ export function TracosS () {
   const handleSubmit = async () => {
     const formDemografico = JSON.parse(window.sessionStorage.getItem('formDemografico'));
     const formQuest1Fem =JSON.parse(window.sessionStorage.getItem('formQuest1Fem'));
+    const formQuest1Mas =JSON.parse(window.sessionStorage.getItem('formQuest1Mas'));
     const formQuest2Fem = JSON.parse(window.sessionStorage.getItem('formQuest2Fem'));
+    const formQuest2Mas =JSON.parse(window.sessionStorage.getItem('formQuest2Mas'));
     const formQuest3Fem = JSON.parse(window.sessionStorage.getItem('formQuest3Fem'));
+    const formQuest3Mas =JSON.parse(window.sessionStorage.getItem('formQuest3Mas'));
     const formSatisfacao = JSON.parse(window.sessionStorage.getItem('formSatisfacao'));
     const formSignificado = JSON.parse(window.sessionStorage.getItem('formSignificado'));
-    console.log("FORM DEMOGRÀFICO 1", formDemografico);
-    console.log("FORM QUEST1FEM 1", formQuest1Fem);
   
     try {
       await addDoc(collection(db, 'form'), {
@@ -52,13 +53,16 @@ export function TracosS () {
         formQuest1Fem,
         formQuest2Fem,
         formQuest3Fem,
+        formQuest1Mas,
+        formQuest2Mas,
+        formQuest3Mas,
         formSatisfacao,
         formSignificado,
         tracos,
         timestamp: serverTimestamp(),
       });
 
-        console.log('Form submitted successfully!');
+      
          
 
     } catch (error) {
