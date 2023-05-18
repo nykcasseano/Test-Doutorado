@@ -41,6 +41,12 @@ const handleAction = () => {
     setAnswers(newAnswers);
   };
 
+  const handleGoBack = () => {
+    navigate('/pages/Satisfacao/SatisfacaoQ')
+  }
+
+ 
+
   return (
     <div class="container">
     <div class="Quest">
@@ -77,10 +83,12 @@ const handleAction = () => {
           ))}
         </tbody>
       </table>
+      <button onClick={handleGoBack}> Voltar </button>
       <button onClick={handleAction}>Próximo</button>
     </div>
     </div>
     </div>
+  
 
   );
 }

@@ -96,6 +96,10 @@ export function TracosS () {
           console.log("ANSWERS Visão:",tracos);
         };
 
+        const handleGoBack = () => {
+          navigate('/pages/Significado/SignificadoQ')
+        }
+
 return (
   <div class="container">
     <div class="Quest">
@@ -132,9 +136,11 @@ return (
           ))}
         </tbody>
       </table>
-      <button onClick={handleAction} >Próximo</button>
+      <button onClick={handleGoBack}> Voltar </button>
+      <button onClick={handleAction}>Próximo</button>
     </div>
     </div>
     </div>
+    
   );
 }
