@@ -86,6 +86,9 @@ const handleAction = () => {
       <button onClick={handleGoBack}> Voltar </button>
       <button onClick={handleAction}>Próximo</button>
     </div>
+    <div class="page-number">
+      Página 6 de 7
+    </div>
     </div>
     </div>
   

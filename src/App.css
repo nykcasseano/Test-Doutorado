@@ -128,4 +128,11 @@ th {
   .pergunta-direita {
     margin-left: 20px;
   }
+
+  .page-number {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+  }
   

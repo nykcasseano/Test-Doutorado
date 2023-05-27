@@ -88,10 +88,13 @@ export function VM_Quest_2() {
             </table>
             <button onClick={handleGoBack}> Voltar </button>
             <button onClick={handleAction}>Próximo</button>
-</div>
-</div>
-</div>
-</div>
+        </div>
+        </div>
+        <div class="page-number">
+          Página 3 de 7
+        </div>
+        </div>
+        </div>
 
 );
 }

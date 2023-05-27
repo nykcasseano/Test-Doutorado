@@ -139,6 +139,9 @@ return (
       <button onClick={handleGoBack}> Voltar </button>
       <button onClick={handleAction}>Próximo</button>
     </div>
+    <div class="page-number">
+      Página 7 de 7
+    </div>
     </div>
     </div>
     

@@ -162,12 +162,12 @@ console.log('valoresConstDemo:', Demografico);
 
 return (
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h1></h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="profissao">Profissão:</label>
+  <div class="row">
+    <div class="col-md-6">
+      <h1></h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="profissao">Profissão:</label>
             <select id="profissao" name="profissao" value={profissao} onChange={handleProfissaoChange} className="form-control">
               <option value="">Selecione uma opção</option>
               <option value="Enfermagem">Enfermagem</option>
@@ -225,8 +225,7 @@ return (
             </select>
           </div>
 
-         
-
+        
 
         <label htmlFor="municipioAtua">Principal município em que atua:</label>
         <input type="text" id="municipioAtua" name="municipioAtua" value={municipioAtua} onChange={handleMunicipioAtuaChange} /> <br /><br />
@@ -242,11 +241,16 @@ return (
         <label htmlFor="dataNascimento">Data de Nascimento:</label>
         <input type="date" id="dataNascimento" name="dataNascimento"  value={dataNascimento} onChange={handleDataNascimentoChange} /> <br />
 
-        <label htmlFor="medico">Atua em especialidade cirurgica?</label> <br /><br />
         
-        <label htmlFor="areaEspecialidade">Se sim,qual a área de especialidade?</label>
-        <input type="text" id="areaEspecialidade" name="areaEspecialidade"  value={especialidade} onChange={handlEspecialidadeChange}/><br /><br />
+        
+        {profissao === 'Medicina' && (
+            <>
+              <label htmlFor="medico">Atua em especialidade cirúrgica?</label><br /><br />
 
+              <label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
+              <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} /><br /><br />
+            </>
+          )}
         <label htmlFor="cpf">4 primeiros dígitos do CPF:</label>
         <input type="text" id="cpf" name="cpf" maxLength="4"  value={cpf} onChange={handleCpfChange}/><br /><br />
 
@@ -254,6 +258,9 @@ return (
 
         <button type="submit">Próximo</button>
       </form>
+    </div>
+    <div class="page-number">
+      Página 1 de 9
     </div>
     </div>
     </div>
