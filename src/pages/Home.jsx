@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../database/firebaseConfig';
+<head>
+  <link rel="stylesheet" href="/src/app.css"/>
+</head>
 
 
 

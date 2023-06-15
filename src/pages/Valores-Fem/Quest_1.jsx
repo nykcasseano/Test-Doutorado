@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+<head>
+  <link rel="stylesheet" href="/src/app.css"/>
+</head>
+
+
+
 
 const questions = [
   "É importante para ela desenvolver suas próprias opiniões:",
@@ -58,13 +56,13 @@ export function VF_Quest_1() {
 
 
   return (
-    <div clas="hug">
-      <div class="container">
-        <div class="Quest">
-          <div class="inputs-container"></div>
+    <div className="hug">
+      <div className="container">
+        <div className="Quest">
+          <div className="inputs-container"></div>
           <div>
-            <h4>A seguir descrevemos diferentes mulheres. Por favor, leia atentamente cada item e indique o quanto a pessoa descrita é Diferente ou Parecida com você. Quanto esta mulher se parece com você?</h4>
-            <table class="mesa">
+            <h4>A seguir descrevemos diferentes mulheres. Por favor, leia atentamente cada item e indique o quanto a pessoa descrita é diferente ou parecida com você. Quanto esta mulher se parece com você?</h4>
+            <table className="mesa">
               <thead>
                 <tr>
                   <th>Pergunta</th>
@@ -94,17 +92,17 @@ export function VF_Quest_1() {
                 ))}
               </tbody>
             </table>
-            <button onClick={handleGoBack}> Voltar </button>
+            <button onClick={handleGoBack}>Voltar</button>
             <button onClick={handleAction}>Próximo</button>
-            </div>
-            </div>
-            <div class="page-number">
-            Página 2 de 7
-            </div>
-            </div>
-            </div>
-
-);
+          </div>
+        </div>
+        <div className="page-number">
+          Página 2 de 7
+        </div>
+      </div>
+    </div>
+  );
+  
 }
             
 

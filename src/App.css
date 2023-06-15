@@ -16,9 +16,9 @@
 }
 
 .form-select {
-  display: inline-block; /* adicionado */
-  width: calc(50% - 5px); /* adicionado para garantir que os elementos fiquem lado a lado */
-  margin-right: 10px; /* adicionado para dar espaço entre os elementos */
+  display: inline-block;
+  width: calc(50% - 5px);
+  margin-right: 10px;
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 0.25rem;
@@ -28,9 +28,9 @@
 }
 
 .form-checkbox {
-  display: inline-block; /* adicionado */
+  display: inline-block;
   margin-right: 1rem;
-  margin-left: 0.5rem; /* adicionado para dar espaço entre os elementos */
+  margin-left: 0.5rem;
 }
 
 .form-submit {
@@ -100,27 +100,28 @@ th {
 
 @media screen and (max-width: 768px) {
   .container {
-  padding: 30px;
+    padding: 30px;
   }
   
   .form-select {
-  display: block;
-  width: 100%;
-  margin-right: 0;
-  margin-bottom: 10px; /* adicionado para dar espaço entre os elementos */
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
   
   .form-checkbox {
-  display: block;
-  margin-right: 0;
-  margin-left: 0; /* adicionado para remover o espaço entre os elementos /
-  margin-bottom: 10px; / adicionado para dar espaço entre os elementos */
+    display: block;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
   }
-  }
+  
   .inputs-container {
     display: flex;
     flex-direction: row;
   }
+  
   .pergunta-esquerda {
     margin-right: 20px;
   }
@@ -135,5 +136,4 @@ th {
     font-size: 14px;
     color: #ffffff;
   }
-
-
+}
