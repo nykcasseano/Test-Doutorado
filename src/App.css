@@ -137,3 +137,36 @@ th {
     color: #ffffff;
   }
 }
+
+
+@media screen and (max-width: 900px) {
+
+  .hug {
+  min-width: 800px;
+padding-left: 500px;
+padding-top: 500px;
+}
+
+.hquatro{
+  text-align: center;
+  display: flex;
+}
+
+.titulo {
+  max-width: 580px;
+
+}
+
+
+.mesa{
+    overflow-x: auto;
+    display: block;
+    border-spacing: 10px; 
+    width: 100%;
+}
+
+.bolinhas{
+  padding-left: 40px;
+}
+
+}
