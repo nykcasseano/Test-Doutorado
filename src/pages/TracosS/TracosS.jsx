@@ -105,8 +105,11 @@ return (
     <div class="Quest">
       <div class="inputs-container"></div>
     <div>
-      <h4>Por favor, avalie o quanto você Discorda ou Concorda com as assertivas a seguir:</h4>
-      <table>
+      <div className="hquatro">
+      <h4 className="titulo">Por favor, avalie o quanto você Discorda ou Concorda com as assertivas a seguir:</h4>
+      </div>
+      <table className="mesa"
+> 
         <thead>
           <tr>
             <th>Pergunta</th>
@@ -120,7 +123,7 @@ return (
             <tr key={questionIndex}>
               <td>{question}</td>
               {options.map((option, optionIndex) => (
-                <td key={optionIndex}>
+                <td className="bolinhas"  key={optionIndex}>
                   <input
                     type="radio"
                     name={`question-${questionIndex}`}

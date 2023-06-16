@@ -52,8 +52,10 @@ const handleAction = () => {
     <div class="Quest">
       <div class="inputs-container"></div>
     <div>
-      <h4>Agora, pensando na sua vida em termos gerais, por favor responda às questões abaixo. Provavelmente, algumas dessas afirmações não irão descrever bem como você avalia a sua vida, enquanto que outras irão descrever melhor o seu sentimento.</h4>
-      <table>
+      <div className="hquatro">
+      <h4 className="titulo">Agora, pensando na sua vida em termos gerais, por favor responda às questões abaixo. Provavelmente, algumas dessas afirmações não irão descrever bem como você avalia a sua vida, enquanto que outras irão descrever melhor o seu sentimento.</h4>
+      </div>
+      <table className="mesa">
         <thead>
           <tr>
             <th>Pergunta</th>
@@ -67,7 +69,7 @@ const handleAction = () => {
             <tr key={questionIndex}>
               <td>{question}</td>
               {options.map((option, optionIndex) => (
-                <td key={optionIndex}>
+                <td className="bolinhas"  key={optionIndex}>
                   <input
                     type="radio"
                     name={`question-${questionIndex}`}

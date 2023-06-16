@@ -49,17 +49,20 @@ export function VF_Quest_3() {
   }
 
 
+ 
   return (
-    <div clas="hug">
-      <div class="container">
-        <div class="Quest">
-          <div class="inputs-container"></div>
+    <div className="hug">
+      <div className="container">
+        <div className="Quest">
+          <div className="inputs-container"></div>
           <div>
-            <h4>A seguir descrevemos diferentes mulheres. Por favor, leia atentamente cada item e indique o quanto a pessoa descrita é Diferente ou Parecida com você. Quanto esta mulher se parece com você?</h4>
-            <table class="mesa">
+            <div className="hquatro">
+            <h4 className="titulo">A seguir descrevemos diferentes mulheres. Por favor, leia atentamente cada item e indique o quanto a pessoa descrita é diferente ou parecida com você. Quanto esta mulher se parece com você?</h4>
+            </div>
+            <table className="mesa">
               <thead>
                 <tr>
-                  <th>Pergunta</th>
+                  <th>Perguntas</th>
                   {options.map((option, index) => (
                     <th key={index}>{option}</th>
                   ))}
@@ -70,7 +73,7 @@ export function VF_Quest_3() {
                   <tr key={questionIndex}>
                     <td>{question}</td>
                     {options.map((option, optionIndex) => (
-                      <td key={optionIndex}>
+                      <td className="bolinhas" key={optionIndex}>
                         <input
                           type="radio"
                           name={`question-${questionIndex}`}
@@ -86,17 +89,18 @@ export function VF_Quest_3() {
                 ))}
               </tbody>
             </table>
-            <button onClick={handleGoBack}> Voltar </button>
+            <button onClick={handleGoBack}>Voltar</button>
             <button onClick={handleAction}>Próximo</button>
           </div>
-          </div>
-          <div class="page-number">
-            Página 4 de 7
-          </div>
-          </div>
-          </div>
-
-
-);
+        </div>
+        <div className="page-number">
+          Página 4 de 7
+        </div>
+      </div>
+    </div>
+  );
+  
 }
+            
+
             
