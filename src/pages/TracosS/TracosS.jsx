@@ -101,9 +101,10 @@ export function TracosS () {
         }
 
 return (
-  <div class="container">
-    <div class="Quest">
-      <div class="inputs-container"></div>
+  <div className="hug">
+  <div className="container">
+    <div className="Quest">
+      <div className="inputs-container"></div>
     <div>
       <div className="hquatro">
       <h4 className="titulo">Por favor, avalie o quanto você Discorda ou Concorda com as assertivas a seguir:</h4>
@@ -112,7 +113,7 @@ return (
 > 
         <thead>
           <tr>
-            <th>Pergunta</th>
+            <th>Perguntas</th>
             {options.map((option, index) => (
               <th key={index}>{option}</th>
             ))}
@@ -147,6 +148,6 @@ return (
     </div>
     </div>
     </div>
-    
+    </div>
   );
 }

@@ -41,9 +41,10 @@ const handleAction = () => {
   }
 
   return (
-    <div class="container">
-    <div class="Quest">
-      <div class="inputs-container"></div>
+    <div className="hug">
+    <div className="container">
+    <div className="Quest">
+      <div className="inputs-container"></div>
     <div>
       <div className="hquatro">
       <h4 className="titulo">Abaixo você encontrará cinco afirmações com as quais pode ou não concordar. Indique o quanto concorda ou discorda com cada uma delas.</h4>
@@ -86,7 +87,7 @@ const handleAction = () => {
     </div>
     </div>
     </div>
-
+    </div>
   );
 }
 
