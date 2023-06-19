@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "pesquisa-doutorado-98136"
+  },
+  "targets": {},
+  "etags": {
+    "pesquisa-doutorado-98136": {
+      "extensionInstances": {
+        "http-export-sheets-e3e7": "95533ce4513096686505d145dec57e3eb6509aef5452de7325e4f2d6586548de",
+        "http-export-sheets": "78e07d7f1e7fec87385b1be089a1db23e3ae9178ff180f31ab175a51ed5760ab"
+      }
+    }
   }
 }
