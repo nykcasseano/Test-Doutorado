@@ -164,9 +164,9 @@ export function Home() {
 console.log('valoresConstDemo:', Demografico);
 
 return (
-  <div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <div className="container">
+  <div className="row">
+    <div className="col-md-6">
       <h1></h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -196,18 +196,6 @@ return (
           </div>
 
           <div className="form-group">
-            <label htmlFor="anoConclusao">Em que ano concluiu seu curso superior:</label>
-            <select id="anoConclusao" name="anoConclusao" value={anoConclusao} onChange={handleAnoConclusaoChange} className="form-control">
-              <option value="">Selecione</option>
-              {Array.from({ length: 39 }, (_, i) => 2022 - i).map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="form-group">
             <label htmlFor="naoConcluiu">Marque se ainda não concluiu o curso:</label>
             <input
               type="checkbox"
@@ -219,7 +207,21 @@ return (
           </div>
 
           <div className="form-group">
-            <label htmlFor="estadoAtua">Estado:</label>
+            <label htmlFor="anoConclusao">Em que ano concluiu seu curso superior:</label>
+            <select id="anoConclusao" name="anoConclusao" value={anoConclusao} onChange={handleAnoConclusaoChange} className="form-control">
+              <option value="">Selecione</option>
+              {Array.from({ length: 65 }, (_, i) => 2022 - i).map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+
+       
+
+          <div className="form-group">
+            <label htmlFor="estadoAtua">Estado em que  atua:</label>
             <select id="estadoAtua" name="estadoAtua" value={estadoAtua} onChange={handleEstadoAtuaChange} className="form-control">
               <option value="">Selecione uma opção</option>
               {Object.keys(estados).map((sigla) => (
@@ -245,10 +247,10 @@ return (
         <input type="date" id="dataNascimento" name="dataNascimento"  value={dataNascimento} onChange={handleDataNascimentoChange} /> <br />
 
         
-        
         {profissao === 'Medicina' && (
             <>
               <label htmlFor="medico">Atua em especialidade cirúrgica?</label><br /><br />
+              
 
               <label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
               <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} /><br /><br />
@@ -262,7 +264,7 @@ return (
         <button type="submit">Próximo</button>
       </form>
     </div>
-    <div class="page-number">
+    <div className="page-number">
       Página 1 de 9
     </div>
     </div>
