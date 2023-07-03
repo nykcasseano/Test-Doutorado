@@ -244,20 +244,20 @@ return (
         <label htmlFor="sexoMasculino">Masculino</label><br /><br />
 
         <label htmlFor="dataNascimento">Data de Nascimento:</label>
-        <input type="date" id="dataNascimento" name="dataNascimento"  value={dataNascimento} onChange={handleDataNascimentoChange} /> <br />
-
+        <input type="date" id="dataNascimento" name="dataNascimento"  value={dataNascimento} onChange={handleDataNascimentoChange} /> <br /><br />
+          
         
         {profissao === 'Medicina' && (
             <>
-              <label htmlFor="medico">Atua em especialidade cirúrgica?</label><br /><br />
+              <label htmlFor="medico">Atua em especialidade cirúrgica?</label>
               
 
-              <label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
-              <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} /><br /><br />
+              <br/><label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
+              <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} /><br/>
             </>
           )}
-        <label htmlFor="cpf">4 primeiros dígitos do CPF:</label>
-        <input type="text" id="cpf" name="cpf" maxLength="4"  value={cpf} onChange={handleCpfChange}/><br /><br />
+        <br/><label htmlFor="cpf">4 primeiros dígitos do CPF:</label>
+        <input type="text" id="cpf" name="cpf" maxLength="4"  value={cpf} onChange={handleCpfChange}/><br />
 
         {/* <input type="submit" value="Submit" /> */}
 
