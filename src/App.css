@@ -1,5 +1,15 @@
 /* Formulário */
 
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  border-color: #535bf2 !important;
+  border: solid;
+  border-width: 2px;
+}
+
 .form-container {
   max-width: 600px;
   margin: 0 auto;
@@ -13,8 +23,22 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  
+}
+label{
+  color: black;
+  font-size: 18px;
 }
 
+select {
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+border-color: blue;
+background-color: white;
+color: black
+}
 .form-select {
   display: inline-block;
   width: calc(50% - 5px);
@@ -57,7 +81,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+#containerhome{
+  background-color: #cecdcd !important;
+  margin-top: 300px;
+}
 .container {
   background-color: #606464cc;
   padding: 20px;
@@ -66,18 +93,25 @@ body {
   max-width: 600px;
   text-align: center;
   padding: 50px 120px 50px 120px;
-  max-width: none;
+  /* max-width: none; */
+margin-top: 90px;
+  margin-left: 10px;
+	margin-right: 10px;
+	background-color: white;
 }
 
 .container h2 {
   margin-bottom: 50px;
   font-size: 1.9em;
+  color: blue
 }
 
 .container p {
   margin-bottom: 10px;
 }
-
+p {
+  color: black !important;
+}
 table {
   border-collapse: collapse;
   width: 100%;
@@ -168,5 +202,54 @@ padding-top: 500px;
 .bolinhas{
   padding-left: 40px;
 }
+
+}
+button {
+  border-color: blue;
+  color: white !important;
+  margin-top: 15px;
+  background-color: blue !important;
+}
+
+
+
+/* Inputs */
+
+input#municipioAtua {
+
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-color: blue;
+  border-width: 1px;
+  background-color: white;
+  color: black
+
+}
+
+
+input#dataNascimento{
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-color: blue;
+  border-width: 1px;
+  background-color: white;
+  color: black
+
+}
+
+input#cpf {
+
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-color: blue;
+  border-width: 1px;
+  background-color: white;
+  color: black
 
 }

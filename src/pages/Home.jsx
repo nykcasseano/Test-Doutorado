@@ -164,13 +164,14 @@ export function Home() {
 console.log('valoresConstDemo:', Demografico);
 
 return (
-  <div className="container">
+  <div className="container" id="containerhome">
   <div className="row">
     <div className="col-md-6">
       <h1></h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="profissao">Profissão:</label>
+          <br></br>
             <select id="profissao" name="profissao" value={profissao} onChange={handleProfissaoChange} className="form-control">
               <option value="">Selecione uma opção</option>
               <option value="Enfermagem">Enfermagem</option>
@@ -182,7 +183,7 @@ return (
               <option value="Psicologia">Psicologia</option>
             </select>
           </div>
-
+          <br></br>
           <div className="form-group">
             <label htmlFor="nivelFormacao">Nível de Formação:</label>
             <select id="nivelFormacao" name="nivelFormacao" value={nivelFormacao} onChange={handleNivelFormacaoChange} className="form-control">
@@ -194,7 +195,7 @@ return (
               <option value="Pós-Doutorado">Pós-Doutorado</option>
             </select>
           </div>
-
+          <br></br>
           <div className="form-group">
             <label htmlFor="naoConcluiu">Marque se ainda não concluiu o curso:</label>
             <input
@@ -205,9 +206,10 @@ return (
               onChange={handleCheckboxChange}
             />
           </div>
-
+          
           <div className="form-group">
             <label htmlFor="anoConclusao">Em que ano concluiu seu curso superior:</label>
+            <br></br>
             <select id="anoConclusao" name="anoConclusao" value={anoConclusao} onChange={handleAnoConclusaoChange} className="form-control">
               <option value="">Selecione</option>
               {Array.from({ length: 65 }, (_, i) => 2022 - i).map((year) => (
@@ -217,11 +219,12 @@ return (
               ))}
             </select>
           </div>
-
+          <br></br>
        
 
           <div className="form-group">
             <label htmlFor="estadoAtua">Estado em que  atua:</label>
+            <br></br>
             <select id="estadoAtua" name="estadoAtua" value={estadoAtua} onChange={handleEstadoAtuaChange} className="form-control">
               <option value="">Selecione uma opção</option>
               {Object.keys(estados).map((sigla) => (
@@ -229,10 +232,11 @@ return (
               ))}
             </select>
           </div>
-
+          <br></br>
         
 
         <label htmlFor="municipioAtua">Principal município em que atua:</label>
+        <br></br>
         <input type="text" id="municipioAtua" name="municipioAtua" value={municipioAtua} onChange={handleMunicipioAtuaChange} /> <br /><br />
 
 
@@ -244,16 +248,19 @@ return (
         <label htmlFor="sexoMasculino">Masculino</label><br /><br />
 
         <label htmlFor="dataNascimento">Data de Nascimento:</label>
+        <br></br>
         <input type="date" id="dataNascimento" name="dataNascimento"  value={dataNascimento} onChange={handleDataNascimentoChange} /> <br /><br />
           
         
         {profissao === 'Medicina' && (
             <>
               <label htmlFor="medico">Atua em especialidade cirúrgica?</label>
+              <br></br>
               
 
-              <br/><label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
-              <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} /><br/>
+              <label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
+              <br></br>
+              <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} />
             </>
           )}
         <br/><label htmlFor="cpf">4 primeiros dígitos do CPF:</label>
