@@ -94,10 +94,11 @@ body {
   text-align: center;
   padding: 50px 120px 50px 120px;
   /* max-width: none; */
-  /* margin-top: 90px; */
+  margin-top: 90px;
   margin-left: 10px;
 	margin-right: 10px;
 	background-color: white;
+  min-width: 950px;
 }
 
 .container h2 {
@@ -122,6 +123,7 @@ td, th {
   text-align: left;
   padding: 8px;
   font-size: 16px;
+  border:solid;
 }
 
 th {
@@ -176,9 +178,9 @@ th {
 @media screen and (max-width: 900px) {
 
   .hug {
-  min-width: 800px;
+  min-width: 900px;
 padding-left: 500px;
-padding-top: 500px;
+padding-top: 100px;
 }
 
 .hquatro{
@@ -257,5 +259,15 @@ input#cpf {
 
 #containerquest{
     margin-top: 60px;
-    /* margin-right: 60px; */
+    margin-right: 60px;
+}
+
+
+td.bolinhas {
+  display: table-cell;
+}
+
+h4.titulo {
+  font-size: 25px;
+
 }
