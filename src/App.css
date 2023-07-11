@@ -79,7 +79,7 @@ body {
   background-image: url("./foto-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  width: fit-content;
+
 }
 #containerhome{
   background-color: #cecdcd !important;
@@ -98,7 +98,7 @@ body {
   margin-left: 10px;
 	margin-right: 10px;
 	background-color: white;
-  min-width: 950px;
+  /* min-width: 950px; */
 }
 
 .container h2 {
@@ -137,7 +137,23 @@ th {
 @media screen and (max-width: 768px) {
   .container {
     padding: 30px;
+    margin-bottom: 1000px;
   }
+
+
+
+  body{
+    width:fit-content;
+  }
+
+  #containerhome {
+    margin-top: 40px;
+    max-width: 320px;
+  }
+
+  select#nivelFormacao {
+    max-width: 180px;
+}
   
   .form-select {
     display: block;
@@ -179,8 +195,8 @@ th {
 
   .hug {
   min-width: 900px;
-padding-left: 500px;
-padding-top: 100px;
+/* padding-left: 500px; */
+padding-top: 40px;
 }
 
 .hquatro{

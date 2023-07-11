@@ -45,7 +45,7 @@ export function VF_Quest_3() {
   };
 
   const handleGoBack = () => {
-    navigate(`/pages/Valores-Fem/Quest_${currentPage - 1}`);
+    navigate(`/pages/Valores-Fem/Quest_2`);
   }
 
 

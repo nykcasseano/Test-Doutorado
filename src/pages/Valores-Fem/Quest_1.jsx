@@ -83,7 +83,7 @@ export function VF_Quest_1() {
                           type="radio"
                           name={`question-${questionIndex}`}
                           value={optionIndex}
-                          checked={answers[questionIndex] === optionIndex}
+                          checked={answers[questionIndex] === optionIndex || false}
                           onChange={() =>
                             handleOptionSelect(questionIndex, optionIndex)
                           }
