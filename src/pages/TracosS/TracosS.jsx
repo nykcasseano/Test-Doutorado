@@ -129,7 +129,7 @@ return (
                     type="radio"
                     name={`question-${questionIndex}`}
                     value={optionIndex}
-                    checked={tracos[questionIndex] === optionIndex}
+                    // checked={tracos[questionIndex] === optionIndex}
                     onChange={() =>
                       handleOptionSelect(questionIndex, optionIndex)
                     }

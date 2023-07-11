@@ -47,6 +47,7 @@ export function VF_Quest_1() {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
+    // console.log(newAnswers);
   };
 
   const handleGoBack = () => {
@@ -83,7 +84,7 @@ export function VF_Quest_1() {
                           type="radio"
                           name={`question-${questionIndex}`}
                           value={optionIndex}
-                          checked={answers[questionIndex] === optionIndex || false}
+                          // checked={answers[questionIndex] === optionIndex || false}
                           onChange={() =>
                             handleOptionSelect(questionIndex, optionIndex)
                           }
