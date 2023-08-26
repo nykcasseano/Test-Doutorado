@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../database/firebaseConfig';
+import axios from 'axios';
 
 
 
@@ -61,6 +62,24 @@ export function TracosS () {
         tracos,
         timestamp: serverTimestamp(),
       });
+
+      const apiUrl = 'http://34.143.202.190:3001/update-google-sheet'; 
+    const postData = {
+      formDemografico,
+      formQuest1Fem,
+      formQuest2Fem,
+      formQuest3Fem,
+      formQuest1Mas,
+      formQuest2Mas,
+      formQuest3Mas,
+      formSatisfacao,
+      formSignificado,
+      tracos,
+      timestamp: serverTimestamp(),
+    };
+
+    const response = await axios.post(apiUrl, postData);
+    console.log('API response:', response.data);
 
       
          
