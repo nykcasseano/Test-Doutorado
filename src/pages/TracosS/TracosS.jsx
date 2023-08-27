@@ -63,7 +63,7 @@ export function TracosS () {
         timestamp: serverTimestamp(),
       });
 
-      const apiUrl = 'http://34.143.202.190:3001/update-google-sheet'; 
+      const apiUrl = 'http://149.28.103.123:3001/update-google-sheet'; 
     const postData = {
       formDemografico,
       formQuest1Fem,
@@ -93,6 +93,7 @@ export function TracosS () {
   const handleAction = () => {
       handleSession();
       handleSubmit();
+      window.sessionStorage.clear();
         navigate('/pages/agradecimento')
     };
 

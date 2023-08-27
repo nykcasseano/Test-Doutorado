@@ -33,7 +33,7 @@ export function VM_Quest_3() {
   const totalPages = 9; // Total de páginas
 
   const handleAction = () => {
-    sessionStorage.setItem('formQuest1Fem', JSON.stringify(answers));
+    sessionStorage.setItem('formQuest3Mas', JSON.stringify(answers));
     navigate('/pages/Satisfacao/SatisfacaoQ')
     console.log('Button clicked!');
   }

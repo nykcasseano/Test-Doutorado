@@ -87,7 +87,7 @@ export function Home() {
       else if (sexo === 'Masculino') {
         navigate('/pages/Valores-Mas/Quest_1')
         
-      } else {
+      } else if (sexo === 'Feminino') {
         navigate('/pages/Valores-Fem/Quest_1')
       }
     } catch (error) {

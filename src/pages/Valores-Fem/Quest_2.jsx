@@ -33,7 +33,7 @@ export function VF_Quest_2() {
   const totalPages = 9; // Total de páginas
 
   const handleAction = () => {
-    sessionStorage.setItem('formQuest1Fem', JSON.stringify(answers));
+    sessionStorage.setItem('formQuest2Fem', JSON.stringify(answers));
     navigate('/pages/Valores-Fem/Quest_3')
     console.log('Button clicked!');
   }

@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+console.log('hey from men q 1')
+
 
 const questions = [
   "É importante para ele desenvolver suas próprias opiniões:",
@@ -35,7 +37,7 @@ export function VM_Quest_1() {
   const totalPages = 9; // Total de páginas
 
   const handleAction = () => {
-    sessionStorage.setItem('formQuest1Fem', JSON.stringify(answers));
+    sessionStorage.setItem('formQuest1Mas', JSON.stringify(answers));
     navigate('/pages/Valores-Mas/Quest_2')
     console.log('Button clicked!');
   }
