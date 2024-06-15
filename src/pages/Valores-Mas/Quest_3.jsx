@@ -28,12 +28,12 @@ const options = [
 
 export function VM_Quest_3() {
   const navigate = useNavigate();
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+  const [answers, setAnswers] = useState(new Array(questions.length).fill('null'));
   const currentPage = 4; // Página atual
   const totalPages = 9; // Total de páginas
 
   const handleAction = () => {
-    sessionStorage.setItem('formQuest1Fem', JSON.stringify(answers));
+    sessionStorage.setItem('formQuest3Mas', JSON.stringify(answers));
     navigate('/pages/Satisfacao/SatisfacaoQ')
     console.log('Button clicked!');
   }

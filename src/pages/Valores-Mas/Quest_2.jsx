@@ -28,12 +28,12 @@ const options  = [
 
 export function VM_Quest_2() {
   const navigate = useNavigate();
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(0));
+  const [answers, setAnswers] = useState(new Array(questions.length).fill('null'));
   const currentPage = 3; // Página atual
   const totalPages = 9; // Total de páginas
 
   const handleAction = () => {
-    sessionStorage.setItem('formQuest1Fem', JSON.stringify(answers));
+    sessionStorage.setItem('formQuest2Mas', JSON.stringify(answers));
     navigate('/pages/Valores-Mas/Quest_3')
     console.log('Button clicked!');
   }

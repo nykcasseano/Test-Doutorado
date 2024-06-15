@@ -36,7 +36,9 @@ const options = [
 
 export function TracosS () {
   const navigate = useNavigate();
-  const [tracos, setTracos] = useState(new Array(questions.length).fill(0));
+  const [tracos, setTracos] = useState(new Array(questions.length).fill('null'));
+  sessionStorage.setItem('tracos', JSON.stringify(tracos));
+
   const handleSubmit = async () => {
     const formDemografico = JSON.parse(window.sessionStorage.getItem('formDemografico'));
     const formQuest1Fem =JSON.parse(window.sessionStorage.getItem('formQuest1Fem'));
@@ -47,23 +49,24 @@ export function TracosS () {
     const formQuest3Mas =JSON.parse(window.sessionStorage.getItem('formQuest3Mas'));
     const formSatisfacao = JSON.parse(window.sessionStorage.getItem('formSatisfacao'));
     const formSignificado = JSON.parse(window.sessionStorage.getItem('formSignificado'));
+    const tracos = JSON.parse(window.sessionStorage.getItem('tracos'));
   
     try {
-      await addDoc(collection(db, 'form'), {
-        formDemografico,
-        formQuest1Fem,
-        formQuest2Fem,
-        formQuest3Fem,
-        formQuest1Mas,
-        formQuest2Mas,
-        formQuest3Mas,
-        formSatisfacao,
-        formSignificado,
-        tracos,
-        timestamp: serverTimestamp(),
-      });
+      // await addDoc(collection(db, 'form'), {
+      //   formDemografico,
+      //   formQuest1Fem,
+      //   formQuest2Fem,
+      //   formQuest3Fem,
+      //   formQuest1Mas,
+      //   formQuest2Mas,
+      //   formQuest3Mas,
+      //   formSatisfacao,
+      //   formSignificado,
+      //   tracos,
+      //   timestamp: serverTimestamp(),
+      // });
 
-      const apiUrl = 'http://34.143.202.190:3001/update-google-sheet'; 
+      const apiUrl = 'https://api.pesquisasaude.com.br/update-google-sheet'; 
     const postData = {
       formDemografico,
       formQuest1Fem,
@@ -93,6 +96,7 @@ export function TracosS () {
   const handleAction = () => {
       handleSession();
       handleSubmit();
+      window.sessionStorage.clear();
         navigate('/pages/agradecimento')
     };
 

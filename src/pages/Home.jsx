@@ -66,6 +66,31 @@ export function Home() {
   //   fetchStates();
   // }, []);
 
+  const makeApiRequest = async (data) => {
+    try {
+      const formDemografico = data;
+      const postData = {
+        formDemografico
+      }
+      const response = await fetch('https://api.pesquisasaude.com.br/update-google-sheet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const jsonResponse = await response.json();
+      return jsonResponse;
+    } catch (error) {
+      console.error('Error making API request:', error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Enviando');
@@ -82,12 +107,14 @@ export function Home() {
 
 
       if (naoConcluiu) {
-          navigate('/pages/agradecimento')
-        }
+      const apiResponse = await makeApiRequest(Demografico);  // Assuming Demografico contains the data you want to send.
+      console.log('API Response:', apiResponse);
+      navigate('/pages/agradecimento');
+    } 
       else if (sexo === 'Masculino') {
         navigate('/pages/Valores-Mas/Quest_1')
         
-      } else {
+      } else if (sexo === 'Feminino') {
         navigate('/pages/Valores-Fem/Quest_1')
       }
     } catch (error) {
@@ -150,6 +177,7 @@ export function Home() {
   
   const Demografico = {
     profissao,
+    especialidade,
     nivelFormacao,
     anoConclusao,
     naoConcluiu,
@@ -157,7 +185,6 @@ export function Home() {
     municipioAtua,
     sexo,
     dataNascimento,
-    especialidade,
     cpf,
 
 }
@@ -165,13 +192,12 @@ console.log('valoresConstDemo:', Demografico);
 
 return (
   <div className="container" id="containerhome">
-  <div className="row">
-    <div className="col-md-6">
-      <h1></h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="profissao">Profissão:</label>
-          <br></br>
+    <div className="row">
+      <div className="col-md-6">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="profissao">Profissão:</label>
+            <br></br>
             <select id="profissao" name="profissao" value={profissao} onChange={handleProfissaoChange} className="form-control">
               <option value="">Selecione uma opção</option>
               <option value="Enfermagem">Enfermagem</option>
@@ -183,7 +209,45 @@ return (
               <option value="Psicologia">Psicologia</option>
             </select>
           </div>
-          <br></br>
+
+          {profissao === 'Medicina' && (
+            <>
+              <label htmlFor="medico">Atua em especialidade cirúrgica?</label>
+              <br></br>
+
+              <label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
+              <br></br>
+              <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} />
+
+              {/* "Marque se ainda não concluiu o curso:" for Medicina */}
+              <div className="form-group">
+                <label htmlFor="naoConcluiu">Marque se ainda não concluiu o curso:</label>
+                <input
+                  type="checkbox"
+                  id="naoConcluiu"
+                  name="naoConcluiu"
+                  checked={naoConcluiu}
+                  onChange={handleCheckboxChange}
+                />
+              </div>
+            </>
+          )}
+          {/* "Marque se ainda não concluiu o curso:" for professions other than Medicina */}
+          {profissao !== 'Medicina' && (
+            <div className="form-group">
+              <label htmlFor="naoConcluiu">Marque se ainda não concluiu o curso:</label>
+              <input
+                type="checkbox"
+                id="naoConcluiu"
+                name="naoConcluiu"
+                checked={naoConcluiu}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+          )}
+
+          
+
           <div className="form-group">
             <label htmlFor="nivelFormacao">Nível de Formação:</label>
             <select id="nivelFormacao" name="nivelFormacao" value={nivelFormacao} onChange={handleNivelFormacaoChange} className="form-control">
@@ -194,17 +258,6 @@ return (
               <option value="Doutorado">Doutorado</option>
               <option value="Pós-Doutorado">Pós-Doutorado</option>
             </select>
-          </div>
-          <br></br>
-          <div className="form-group">
-            <label htmlFor="naoConcluiu">Marque se ainda não concluiu o curso:</label>
-            <input
-              type="checkbox"
-              id="naoConcluiu"
-              name="naoConcluiu"
-              checked={naoConcluiu}
-              onChange={handleCheckboxChange}
-            />
           </div>
           
           <div className="form-group">
@@ -251,18 +304,7 @@ return (
         <br></br>
         <input type="date" id="dataNascimento" name="dataNascimento"  value={dataNascimento} onChange={handleDataNascimentoChange} /> <br /><br />
           
-        
-        {profissao === 'Medicina' && (
-            <>
-              <label htmlFor="medico">Atua em especialidade cirúrgica?</label>
-              <br></br>
-              
-
-              <label htmlFor="areaEspecialidade">Se sim, qual a área de especialidade?</label>
-              <br></br>
-              <input type="text" id="areaEspecialidade" name="areaEspecialidade" value={especialidade} onChange={handlEspecialidadeChange} />
-            </>
-          )}
+      
         <br/><label htmlFor="cpf">4 primeiros dígitos do CPF:</label>
         <input type="text" id="cpf" name="cpf" maxLength="4"  value={cpf} onChange={handleCpfChange}/><br />
 
@@ -277,5 +319,6 @@ return (
     </div>
     </div>
     </div>
-  )
+);
+
 }
